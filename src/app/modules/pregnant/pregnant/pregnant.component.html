@@ -1,0 +1,123 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <h2 class="title-log" style="text-align: center;">Learner Pregnancy (2023)</h2>
+  <div class="title-log" >
+    <p style="text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+    
+    <ol>
+      <li>Kindly input the total number of learners by grade that were pregnant at the school over the course of last year 2023.</li>
+      <li>The total number of pregnant learners by grade will be calculated automatically.</li>
+    </ol>
+      
+</div>
+<div class="mat-dialog-content">
+      
+    <form [formGroup]="pregnantForm">
+                <br>
+                <br>
+              <div class="row">
+    
+                <mat-form-field   appearance="outline" *ngIf="preGradeR">
+                    <mat-label>Pre Grade R</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="preGradeR" autocomplete="off"   >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="gR">
+                    <mat-label>Grade R</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeR" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="g1">
+                    <mat-label>Grade 1</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade1" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="g2">
+                    <mat-label>Grade 2</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade2" autocomplete="off"    >
+                </mat-form-field>
+              </div>
+    
+              <div class="row">
+                <mat-form-field   appearance="outline" *ngIf="g3">
+                    <mat-label>Grade 3</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade3" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="g4">
+                    <mat-label>Grade 4</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade4" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field appearance="outline" *ngIf="g5">
+                    <mat-label>Grade 5</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade5" autocomplete="off"    >
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="outline" *ngIf="g6">
+                    <mat-label>Grade 6</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade6" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field appearance="outline" *ngIf="g7">
+                    <mat-label>Grade 7</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade7" autocomplete="off"    >
+                </mat-form-field>
+              
+              </div>
+    
+              <div class="row">
+                <mat-form-field  appearance="outline" *ngIf="g8">
+                    <mat-label>Grade 8</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade8" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field  appearance="outline" *ngIf="g9">
+                    <mat-label>Grade 9</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade9" autocomplete="off"    >
+                </mat-form-field>
+    
+              </div>
+    
+              <div class="row">
+                <mat-form-field   appearance="outline" *ngIf="g10">
+                    <mat-label>Grade 10</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade10" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="g11">
+                    <mat-label>Grade 11</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade11" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="g12">
+                    <mat-label>Grade 12</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="grade12" autocomplete="off"    >
+                </mat-form-field>
+              
+              </div>
+    
+              <div class="row">
+                <mat-form-field   appearance="outline" *ngIf="gSpecial">
+                    <mat-label>Grade Special</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeSpecial" autocomplete="off"    >
+                </mat-form-field>
+                <mat-form-field   appearance="outline" *ngIf="gOther">
+                    <mat-label>Grade Other</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeOther" autocomplete="off"    >
+                </mat-form-field>
+              </div>
+               
+        
+               
+                
+               
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="total" autocomplete="off"   [value]="total" name="total" [(ngModel)]="total">
+                </mat-form-field>
+                
+                    <div>
+                        <button mat-button  (click)="closeDialog()" >Cancel</button>
+                        <button class="btn btn-success" (click)="onSubmit()" >Save & Continue</button>
+                      </div>
+             
+        </form>
+    
+      
+</div>

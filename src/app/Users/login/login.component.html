@@ -1,0 +1,66 @@
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a class="logo"><img class="logo"src="assets/images/gdelogo1.png" alt=""></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" [routerLink]="['/home']">Home</a></li>
+          <li><a class="nav-link scrollto" (click)="openDialog()" style="cursor: pointer;">SignUp</a></li>
+          
+        </ul>
+        <!-- <i class="bi bi-list mobile-nav-toggle"  (click)="toggleMobileNav($event)"></i> -->
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <div class="center">
+            <h1>Login</h1>
+            <form [formGroup]="loginForm">
+              <div class="txt_field">
+                <input type="text" formControlName="userName" required>
+                <span></span>
+                <label>Username</label>
+              </div>
+              <div class="txt_field">
+                <input type="password" formControlName="password" required>
+                <span></span>
+                <label>Password</label>
+              </div>
+              <div class="pass">Forgot Password?</div>
+              <div mat-dialog-actions class="container">
+                <button mat-raised-button (click)="onSubmit()" color="primary">Login</button>
+            </div>      <div class="signup_link">
+                Don't have an account? <a (click)="openDialog()" style="cursor: pointer;">SignUp</a>
+              </div>
+            </form>
+          </div>
+        
+        </div>
+      </div>
+     </div>
+
+  </section>
+
+ 
+  <br>
+  <footer id="footer">
+
+    
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>EMIS SNAP SURVEY 2023</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="http://scholartransport.gauteng.gov.za/">Department of Education</a>
+        </div>
+      </div>
+     
+    </div>
+  </footer><!-- End Footer -->

@@ -1,0 +1,518 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+
+<h2 class="title-log" style="text-align: center;">Number of Learners and Classes per Grade </h2>
+<div class="title-log" >
+    <p style="text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+    <ol>
+        <li>Please ensure that you input the correct number of males and females per grade.</li>
+        <li>The total number of males and females per grade will be calculated automatically.</li>
+        <li>Kindly input the total number of class units per grade.</li>
+    </ol>
+     
+    
+</div>
+<div class="mat-dialog-content">
+
+        <form [formGroup]="learnersPerclassForm">
+
+            <div class="row" *ngIf="preGradeR">
+                <p><strong> Pre Grade R</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="preGradeRMale" autocomplete="off"  required>
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="preGradeRFemale" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="preGradeRTotal" autocomplete="off"  required [value]="gradePreGradeRTolal "  [(ngModel)]="gradePreGradeRTolal" name="gradePreGradeRTolal" readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('preGradeRTotal').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="preGradeRClasses" autocomplete="off"  required>
+                    <mat-error *ngIf="learnersPerclassForm.get('preGradeRClasses').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZeroPreR']">The number of classes can not be 0</span>
+            </div>
+            <div class="row" *ngIf="gR">
+                <p><strong>Grade R </strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeRMale" autocomplete="off"  required  >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeRFemale" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeRTotal" autocomplete="off"  required  [value]="gradeRTotal" name="gradeRTotal"  [(ngModel)]="gradeRTotal" readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeRTotal').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeRClasses" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeRClasses').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZeroR']">The number of classes can not be 0</span>
+
+            </div>
+            <div class="row" *ngIf="g1">
+                <p><strong>Grade 1 </strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale1" autocomplete="off"  required  >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale1" autocomplete="off"  required>
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal1" autocomplete="off"  required  [value]="grade1Total" name="grade1Total"  [(ngModel)]="grade1Total"  readonly>
+                </mat-form-field>
+                <mat-error *ngIf="learnersPerclassForm.get('gradeTotal1').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses1" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses1').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero1']">The number of classes can not be 0</span>
+
+            </div>
+            <div class="row" *ngIf="g2">
+                <p><strong>Grade 2</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale2" autocomplete="off"  required>
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale2" autocomplete="off"  required>
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal2" autocomplete="off"  required [value]="grade2Total" name="grade2Total"  [(ngModel)]="grade2Total"  readonly >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal2').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses2" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses2').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero2']">The number of classes can not be 0</span>
+
+            </div>
+
+       
+            <div class="row" *ngIf="g3">
+                <p><strong>Grade 3</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale3" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale3" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal3" autocomplete="off"  required [value]="grade3Total" name="grade3Total"  [(ngModel)]="grade3Total"  readonly >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal3').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses3" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses3').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero3']">The number of classes can not be 0</span>
+
+            </div>
+           
+            <div class="row" *ngIf="g4">
+                <p><strong>Grade 4</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale4" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale4" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal4" autocomplete="off"  required  [value]="grade4Total" name="grade4Total"  [(ngModel)]="grade4Total"  readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal4').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses4" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses4').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero4']">The Number of classes can not be 0</span>
+
+            </div>
+            <div class="row" *ngIf="g5">
+                <p><strong>Grade 5</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale5" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale5" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal5" autocomplete="off"  required  [value]="grade5Total" name="grade5Total" [(ngModel)]="grade5Total"  readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal5').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses5" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses5').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero5']">The number of classes can not be 0</span>
+
+            </div>
+
+            <div class="row" *ngIf="g6">
+                <p><strong>Grade 6</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale6" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale6" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal6" autocomplete="off"  required  [value]="grade6Total" name="grade6Total" [(ngModel)]="grade6Total"  readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal6').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses6" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses6').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero6']">The number of classes can not be 0</span>
+
+            </div>
+            <div class="row" *ngIf="g7">
+                <p><strong>Grade 7</strong></p>
+                <br>
+                <br>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Male</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeMale7" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Female</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale7" autocomplete="off"  required >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal7" autocomplete="off"  required [value]="grade7Total" name="grade7Total" [(ngModel)]="grade7Total"  readonly>
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeTotal7').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                </mat-form-field>
+                <mat-form-field   appearance="outline">
+                    <mat-label>Classes</mat-label>
+                    <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses7" autocomplete="off"  required >
+                    <mat-error *ngIf="learnersPerclassForm.get('gradeClasses7').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                </mat-form-field>
+                <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero7']">The number of classes can not be 0</span>
+
+            </div>
+
+                <div class="row" *ngIf="g8">
+                    <p><strong>Grade 8</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll noScroll formControlName="gradeMale8"  autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale8" autocomplete="off" resetToZero required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal8" autocomplete="off"  required  [value]="grade8Total" [(ngModel)]="grade8Total" name="grade8Total" readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotal8').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses8" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClasses8').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero8']">The number of classes can not be 0</span>
+                </div>
+                <div class="row" *ngIf="g9">
+                    <p><strong>Grade 9</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMale9" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale9" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal9" autocomplete="off"  required [value]="grade9Total" name="grade9Total"  [(ngModel)]="grade9Total" readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotal9').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses9" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClasses9').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero9']">The number of classes can not be 0</span>
+
+                </div>
+                <div class="row" *ngIf="g10">
+                    <p><strong>Grade 10</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMale10" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale10" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal10" autocomplete="off"  required  [value]="grade10Total" name="grade10Total" [(ngModel)]="grade10Total"  readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotal10').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses10" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClasses10').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero10']">The number of classes can not be 0</span>
+
+                </div>
+                <div class="row" *ngIf="g11">
+                    <p><strong>Grade 11</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMale11" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale11" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal11" autocomplete="off"  required  [value]="grade11Total" name="grade11Total" [(ngModel)]="grade11Total"  readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotal11').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses11" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClasses11').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero11']">The number of classes can not be 0</span>
+
+                </div>
+                <div class="row" *ngIf="g12">
+                    <p><strong>Grade 12</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMale12" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemale12" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotal12" autocomplete="off"  required  [value]="grade12Total" name="grade12Total" [(ngModel)]="grade12Total"  readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotal12').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClasses12" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClasses12').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZero12']">The number of classes can not be 0</span>
+
+                </div>
+
+                <div class="row" *ngIf="gSpecial">
+                    <p><strong>Grade Special</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSpecial" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSpecial" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSpecial" autocomplete="off"  required  [value]="gradeSpecialTotal" name="gradeSpecialTotal" [(ngModel)]="gradeSpecialTotal"  readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotalSpecial').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClassesSpecial" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClassesSpecial').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZeroSpecial']">The number of classes can not be 0</span>
+
+                </div>
+                <div class="row" *ngIf="gOther">
+                    <p><strong>Grade Other</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleOther" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleOther" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalOther" autocomplete="off"  required  [value]="gradeOtherTotal" name="gradeOtherTotal" [(ngModel)]="gradeOtherTotal" readonly>
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeTotalOther').hasError('numberAbove1000')">The total can not exceed 1000</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="gradeClassesOther" autocomplete="off"  required >
+                        <mat-error *ngIf="learnersPerclassForm.get('gradeClassesOther').hasError('numberBelow30')">The number of classes can not exceed 100</mat-error>
+
+                    </mat-form-field>
+                    <span style="color: red;"*ngIf="learnersPerclassForm.errors?.['classesZeroOther']">The number of classes can not be 0</span>
+
+                </div>
+                <div class="row">
+                    <p><strong>Total</strong></p>
+                    <br>
+                    <br>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total of Male</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="malesTotal" [(ngModel)]="maleTotal" name="maleTotal" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total of Female</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="femalesTotal" [(ngModel)]="femaleTotal" name="femaleTotal" autocomplete="off"  required >
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total of learners</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="LearnersTotal" autocomplete="off"  required  name="totalLearners" [(ngModel)]="totalLearners"  readonly>
+                    </mat-form-field>
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Total of Classes</mat-label>
+                        <input matInput placeholder=""type="number" noScroll formControlName="classesTotal" [(ngModel)]="totalClasses" name="totalClasses" autocomplete="off"  required >
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button  (click)="closeDialog()" >Cancel</button>
+                    <button class="btn btn-success" (click)="onSubmit()" >Save & Continue</button>
+                  </div>
+           
+    </form>
+     
+    </div>

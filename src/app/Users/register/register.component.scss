@@ -1,0 +1,99 @@
+
+.row{
+    width: 100%;
+}
+mat-icon {
+  color: #004b98;
+  transition: color 0.3s;
+}
+
+mat-icon:hover {
+  color: #980000;
+  border-radius: 50%; /* Creates a circular shape */
+  background-color: #ccc; /* Set your desired background color */
+  padding: 0.3em; /* Add some padding for spacing */
+  display: inline-flex; /* Ensures the circular shape works properly */
+  align-items: center; /* Aligns content vertically */
+  justify-content: center; /* Aligns content horizontally */
+}
+.title-log{
+    text-align: center;
+    padding: 10px 0;
+    color: #004b98;
+    border-bottom: 1px solid silver;
+  
+}
+
+.mat-dialog-content{
+  overflow-y: hidden;
+}
+
+mat-form-field{
+  width: 50%;
+}
+mat-label{
+  font-size: 15px;
+}
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  
+  mat-label{
+      font-size: 10px;
+  }
+  mat-form-field{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+mat-label{
+    font-size: 10px;
+}
+mat-form-field{
+  width: 100%;
+}
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+
+mat-label{
+    font-size: 13px;
+}
+mat-form-field{
+  width: 100%;
+}
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+mat-label{
+    font-size: 15px;
+}
+mat-form-field{
+  width: 100%;
+}
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+mat-label{
+    font-size: 15px;
+}
+mat-form-field{
+  width: 50%;
+}
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+
+mat-label{
+    font-size: 12px;
+}
+mat-form-field{
+  width: 50%;
+}
+}
+

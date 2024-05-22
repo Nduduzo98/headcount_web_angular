@@ -1,0 +1,370 @@
+
+    .row{
+        width: 100%;
+    }
+    mat-icon {
+      color: #004b98;
+      transition: color 0.3s;
+    }
+    
+    mat-icon:hover {
+      color: #980000;
+      border-radius: 50%; /* Creates a circular shape */
+      background-color: #ccc; /* Set your desired background color */
+      padding: 0.3em; /* Add some padding for spacing */
+      display: inline-flex; /* Ensures the circular shape works properly */
+      align-items: center; /* Aligns content vertically */
+      justify-content: center; /* Aligns content horizontally */
+    }
+    .title-log{
+      background-color: #ad9961;
+      color: #fff;
+      
+    }
+    
+    .mat-dialog-content{
+      overflow-y: hidden;
+    }
+
+    mat-form-field{
+      width: 10%;
+    }
+    mat-label{
+      font-size: 15px;
+    }
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+      
+      mat-label{
+          font-size: 10px;
+      }
+      mat-form-field{
+        width: 50%;
+      }
+  }
+
+  @media screen and (max-width: 400px) {
+    
+    mat-label{
+        font-size: 10px;
+    }
+    mat-form-field{
+      width: 100%;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    
+    mat-label{
+        font-size: 13px;
+    }
+    mat-form-field{
+      width: 100%;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    
+    mat-label{
+        font-size: 15px;
+    }
+    mat-form-field{
+      width: 100%;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    mat-label{
+        font-size: 15px;
+    }
+    mat-form-field{
+      width: 50%;
+    }
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+  
+    mat-label{
+        font-size: 12px;
+    }
+    mat-form-field{
+      width: 50%;
+    }
+}
+
+#header {
+  transition: all 0.5s;
+  background: #fff;
+  z-index: 997;
+  padding: 15px 0;
+  border-bottom: 1px solid #e6f2fb;
+}
+
+#header.header-scrolled {
+  border-color: #fff;
+  box-shadow: 0px 2px 15px rgba(18, 66, 101, 0.08);
+}
+
+#header .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+#header .logo a {
+  color: #16507b;
+}
+
+#header .logo img {
+  max-height: 60px;
+}
+
+@media (max-width: 992px) {
+  #header .logo {
+    font-size: 30px;
+  }
+}
+.contaier{
+  width: 80%;
+  margin-left: 10%;
+}
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-size: 14px;
+  color: #16507b;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #004b98;
+}
+
+.navbar .getstarted,
+.navbar .getstarted:focus {
+  background: #ad9961;
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.navbar .getstarted:hover,
+.navbar .getstarted:focus:hover {
+  color: #fff;
+  background: #3194db;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.button{
+  background-color: #004b98;
+  color: #fff;
+}
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  text-transform: none;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #004b98;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #124265;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(10, 38, 58, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #124265;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: #004b98;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  color: #004b98;
+}
+
+.navbar-mobile .dropdown>.dropdown-active {
+  display: block;
+}

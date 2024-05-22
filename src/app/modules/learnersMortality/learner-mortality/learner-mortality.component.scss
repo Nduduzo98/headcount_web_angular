@@ -1,0 +1,90 @@
+mat-icon{
+    color: #004b98;
+    
+  }
+  mat-icon:hover{
+    color: #980000;
+      }
+    
+  
+    .title-log{
+      background-color: #ad9961;
+      color: #fff;
+    }
+  
+    .mat-dialog-content {
+   
+      justify-content: center;
+      margin-left: 70px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+  
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+      
+      mat-label{
+          font-size: 10px;
+      }
+      mat-form-field{
+        width: 20%;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    
+    mat-label{
+        font-size: 10px;
+    }
+    mat-form-field{
+      width: 40%;
+    
+  }
+  }
+  
+  /* For screen widths between 401px and 600px */
+  @media screen and (min-width: 401px) and (max-width: 600px) {
+    
+    mat-label{
+        font-size: 13px;
+    }
+    mat-form-field{
+      width: 40%;
+    
+  }
+  }
+  
+  /* For screen widths between 601px and 900px */
+  @media screen and (min-width: 601px) and (max-width: 900px) {
+    
+    mat-label{
+        font-size: 15px;
+    }
+    mat-form-field{
+      width: 40%;
+    
+  }
+  }
+  
+  /* For screen widths between 901px and 1200px */
+  @media screen and (min-width: 901px) and (max-width: 1200px) {
+    mat-label{
+        font-size: 15px;
+    }
+    mat-form-field{
+      width: 20%;
+    
+  }
+  }
+  
+  /* For screen widths greater than 1200px */
+  @media screen and (min-width: 1201px) {
+  
+    mat-label{
+        font-size: 12px;
+    }
+    mat-form-field{
+      width: 20%;
+    
+  }
+  }
+  

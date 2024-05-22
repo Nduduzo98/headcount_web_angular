@@ -1,0 +1,38 @@
+mat-icon {
+    color: #004b98;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-icon:hover {
+    color: #980000;
+    border-radius: 50%; /* Creates a circular shape */
+    background-color: #ccc; /* Set your desired background color */
+    padding: 0.3em; /* Add some padding for spacing */
+    display: inline-flex; /* Ensures the circular shape works properly */
+    align-items: center; /* Aligns content vertically */
+    justify-content: center; /* Aligns content horizontally */
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  mat-form-field{
+    width: 20%;
+  
+}
+
+.title-log{
+    background-color: #ad9961;
+    color: #fff;
+  }
+  .mat-dialog-content {
+   
+    justify-content: center;
+    margin-left: 70px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }

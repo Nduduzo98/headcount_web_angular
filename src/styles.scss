@@ -1,0 +1,714 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.tcpopup{
+    width: 50%;
+}
+
+.emisPop{
+    width: 50%;
+}
+
+
+.schoolGeneral{
+    width: 50%;
+    height:600px;
+}
+
+
+
+/* For screen widths up to 400px */
+@media screen and (max-width: 400px) {
+    .tcpopup {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .tcpopup {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .tcpopup {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .tcpopup {
+        width: 50%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+    .tcpopup {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths up to 400px */
+@media screen and (max-width: 400px) {
+    .schoolGeneral {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .schoolGeneral {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .schoolGeneral {
+        width: 90%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .schoolGeneral {
+        width: 80%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+    .schoolGeneral {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+/* For screen widths up to 400px */
+@media screen and (max-width: 400px) {
+    .emisPop {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .emisPop {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .emisPop {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .emisPop {
+        width: 50%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+    .emisPop {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .schoolGerenalComp {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .schoolGerenalComp {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .schoolGerenalComp {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .schoolGerenalComp {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .schoolGerenalComp {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+//LearnerPerClass
+@media screen and (min-width: 1201px) {
+    .learnerComp {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .learnerComp {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .learnerComp {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .learnerComp {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .learnerComp {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+//repeaters
+@media screen and (min-width: 1201px) {
+    .repeaterComp {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .repeaterComp {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .repeaterComp {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .repeaterComp {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .repeaterComp {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+//Home Language Comp
+@media screen and (min-width: 1201px) {
+    .homeLanguageComp {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .homeLanguageComp {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .homeLanguageComp {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .homeLanguageComp {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .homeLanguageComp {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+//Migration
+@media screen and (min-width: 1201px) {
+    .migration {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .migration {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .migration {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .migration {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .migration {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+//Pregnant
+@media screen and (min-width: 1201px) {
+    .pregnant {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .pregnant {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .pregnant {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .pregnant {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .pregnant {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+//personel
+@media screen and (min-width: 1201px) {
+    .personel {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .personel {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .personel {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .personel {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .personel {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .disability {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .disability {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .disability {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .disability {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .disability {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .emisPop {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .OTP {
+        width: 100%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .OTP {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .OTP {
+        width: 50%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths greater than 1200px */
+@media screen and (min-width: 1201px) {
+    .OTP {
+        width: 60%;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .learnerMortality {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .learnerMortality {
+        width: 100%;
+        height: 600px;
+
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 401px and 600px */
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .learnerMortality {
+        width: 100%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .learnerMortality {
+        width: 60%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+
+/* For screen widths between 901px and 1200px */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .learnerMortality {
+        width: 70%;
+        height: 600px;
+    }
+    mat-label{
+        font-size: 10px;
+    }
+}
+

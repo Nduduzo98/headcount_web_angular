@@ -1,0 +1,41 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <h1 mat-dialog-title class="title-log">School Verification using EMIS number </h1>
+
+<div mat-dialog-content class="mat-dialog-content">
+
+    <mat-card class="card">
+        <br>
+
+        <div class="container">
+            <form [formGroup]="emsForm">
+
+                {{emsValue}}<mat-form-field appearance="outline">
+                    <mat-error *ngIf="emsForm.get('emisNumber').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="emsForm.get('emisNumber').hasError('pattern')">Emis Number must contain only numeric characters.</mat-error>
+                    <mat-error *ngIf="emsForm.get('emisNumber').hasError('maxlength')">Enter Last 6 digits on EMIS Number</mat-error>
+                    <mat-error *ngIf="emsForm.get('emisNumber').hasError('minlength')">Enter Last 6 digits on EMIS Number</mat-error>
+            
+                    <mat-label>Enter Last 6 digits on EMIS Number</mat-label>
+                   <input matInput placeholder="" type="text" autocomplete="off" formControlName="emisNumber" [(ngModel)]="emis" name="emis" [maxLength]="6" required>
+                </mat-form-field>
+    
+            <div mat-dialog-actions class="container">
+                <button (click) = "onSubmit()" mat-raised-button color="primary">Submit</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="overlay" *ngIf="isSubmitting">
+            <mat-progress-spinner mode="indeterminate" diameter="50" strokeWidth="3" style=" color: #ad9961"></mat-progress-spinner>
+          </div>
+      </mat-card>
+
+      
+    
+  
+
+</div>

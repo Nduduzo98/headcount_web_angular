@@ -1,0 +1,364 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+
+<h2 class="title-log" style="text-align: center;">Learner Mortality <strong>(2023)</strong> </h2>
+<div class="title-log" >
+    <p style="text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+
+    <ol>
+        <li>Kindly input the total number of male and female learners by grade that lost their lives in <strong>2023</strong>.</li>
+        <li>The total number of deceased learners by grade will be calculated automatically.</li>
+        <li>Please use the scroll bars to view the full table. You can also use the Zoom function in your browser to achieve the same result.</li>
+
+    </ol>
+       
+</div>
+
+<div class="mat-dialog-content">
+    <div class="container">
+        <form [formGroup]="learnersMortalityForm">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="custom-thead">
+                        <tr>
+                            <th rowspan="2" style="text-align: center;">Cause of Death</th>
+                            <th  colspan="2" style="text-align: center;"  *ngIf="preGradeR">Pre-Grade R</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="gR">Grade R</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g1">Grade 1</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g2">Grade 2</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g3">Grade 3</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g4">Grade 4</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g5">Grade 5</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g6">Grade 6</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g7">Grade 7</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g8">Grade 8</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g9">Grade 9</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g10">Grade 10</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g11">Grade 11</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="g12">Grade 12</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="gSpecial">Grade Special</th>
+                            <th  colspan="2" style="text-align: center;" *ngIf="gOther">Grade Other</th>
+                        </tr>
+                        <tr>
+                            <th *ngIf="preGradeR" style="text-align: center;">Male</th>
+                            <th *ngIf="preGradeR" style="text-align: center;">Female</th>
+                            <th *ngIf="gR" style="text-align: center;">Male</th>
+                            <th *ngIf="gR"style="text-align: center;">Female</th>
+                            <th *ngIf="g1"style="text-align: center;">Male</th>
+                            <th *ngIf="g1"style="text-align: center;">Female</th>
+                            <th *ngIf="g2"style="text-align: center;">Male</th>
+                            <th *ngIf="g2"style="text-align: center;">Female</th>
+                            <th *ngIf="g3"style="text-align: center;">Male</th>
+                            <th *ngIf="g3"style="text-align: center;">Female</th>
+                            <th *ngIf="g4"style="text-align: center;">Male</th>
+                            <th *ngIf="g4"style="text-align: center;">Female</th>
+                            <th *ngIf="g5"style="text-align: center;">Male</th>
+                            <th *ngIf="g5"style="text-align: center;">Female</th>
+                            <th *ngIf="g6"style="text-align: center;">Male</th>
+                            <th *ngIf="g6"style="text-align: center;">Female</th>
+                            <th *ngIf="g7"style="text-align: center;">Male</th>
+                            <th *ngIf="g7"style="text-align: center;">Female</th>
+                            <th *ngIf="g8"style="text-align: center;">Male</th>
+                            <th *ngIf="g8"style="text-align: center;">Female</th>
+                            <th *ngIf="g9"style="text-align: center;">Male</th>
+                            <th *ngIf="g9"style="text-align: center;">Female</th>
+                            <th *ngIf="g10"style="text-align: center;">Male</th>
+                            <th *ngIf="g10"style="text-align: center;"> Female</th>
+                            <th *ngIf="g11"style="text-align: center;">Male</th>
+                            <th *ngIf="g11"style="text-align: center;">Female</th>
+                            <th *ngIf="g12"style="text-align: center;">Male</th>
+                            <th *ngIf="g12"style="text-align: center;">Female</th>
+                            <th *ngIf="gSpecial"style="text-align: center;">Male</th>
+                            <th *ngIf="gSpecial"style="text-align: center;">Female</th>
+                            <th *ngIf="gOther"style="text-align: center;">Male</th>
+                            <th *ngIf="gOther"style="text-align: center;">Female</th>
+                            <th >Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Accident</td>
+
+<td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentPreGradeRMale" autocomplete="off"></td>
+<td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentPreGradeRFemale" autocomplete="off"></td>
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeRMale" autocomplete="off"></td>
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeRFemale" autocomplete="off"></td>
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale1" autocomplete="off"></td>
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale1" autocomplete="off"></td>
+<td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale2" autocomplete="off"></td>
+<td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale2" autocomplete="off"></td>
+
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale3" autocomplete="off"></td>
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale3" autocomplete="off"></td>
+
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale4" autocomplete="off"></td>
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale4" autocomplete="off"></td>
+
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale5" autocomplete="off"></td>
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale5" autocomplete="off"></td>
+
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale6" autocomplete="off"></td>
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale6" autocomplete="off"></td>
+
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale7" autocomplete="off"></td>
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale7" autocomplete="off"></td>
+
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale8" autocomplete="off"></td>
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale8" autocomplete="off"></td>
+
+<td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale9" autocomplete="off"></td>
+<td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale9" autocomplete="off"></td>
+
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale10" autocomplete="off"></td>
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale10" autocomplete="off"></td>
+
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale11" autocomplete="off"></td>
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale11" autocomplete="off"></td>
+
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMale12" autocomplete="off"></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemale12" autocomplete="off"></td>
+
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMaleSpecial" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemaleSpecial" autocomplete="off"></td>
+
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeMaleOther" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentGradeFemaleOther" autocomplete="off"></td>
+<td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalAccident" autocomplete="off" [value]="totalAccident" name="totalAccident"  [(ngModel)]="totalAccident"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Illness</td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessPreGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessPreGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale1" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale1" autocomplete="off"></td>
+
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale2" autocomplete="off"></td>
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale2" autocomplete="off"></td>
+                            
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale3" autocomplete="off"></td>
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale3" autocomplete="off"></td>
+                            
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale4" autocomplete="off"></td>
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale4" autocomplete="off"></td>
+                            
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale5" autocomplete="off"></td>
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale5" autocomplete="off"></td>
+                            
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale6" autocomplete="off"></td>
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale6" autocomplete="off"></td>
+                            
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale7" autocomplete="off"></td>
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale7" autocomplete="off"></td>
+                            
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale8" autocomplete="off"></td>
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale8" autocomplete="off"></td>
+                            
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale9" autocomplete="off"></td>
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale9" autocomplete="off"></td>
+                            
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale10" autocomplete="off"></td>
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale10" autocomplete="off"></td>
+                            
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale11" autocomplete="off"></td>
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale11" autocomplete="off"></td>
+                            <td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMale12" autocomplete="off"></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemale12" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMaleSpecial" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemaleSpecial" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeMaleOther" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessGradeFemaleOther" autocomplete="off"></td>
+<td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalillness" autocomplete="off" [value]="totalillness" name="totalillness"  [(ngModel)]="totalillness"></td>
+       
+</tr>
+                        <tr>
+                            <td>Suicide</td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicidePreGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicidePreGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale1" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale1" autocomplete="off"></td>
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale2" autocomplete="off"></td>
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale2" autocomplete="off"></td>
+                            
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale3" autocomplete="off"></td>
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale3" autocomplete="off"></td>
+                            
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale4" autocomplete="off"></td>
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale4" autocomplete="off"></td>
+                            
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale5" autocomplete="off"></td>
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale5" autocomplete="off"></td>
+                            
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale6" autocomplete="off"></td>
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale6" autocomplete="off"></td>
+                            
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale7" autocomplete="off"></td>
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale7" autocomplete="off"></td>
+                            
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale8" autocomplete="off"></td>
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale8" autocomplete="off"></td>
+                            
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale9" autocomplete="off"></td>
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale9" autocomplete="off"></td>
+                            
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale10" autocomplete="off"></td>
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale10" autocomplete="off"></td>
+                            
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale11" autocomplete="off"></td>
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale11" autocomplete="off"></td>
+                            <td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMale12" autocomplete="off"></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemale12" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMaleSpecial" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemaleSpecial" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeMaleOther" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideGradeFemaleOther" autocomplete="off"></td>
+<td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalsuicide" autocomplete="off" [value]="totalsuicide" name="totalsuicide"  [(ngModel)]="totalsuicide"></td>
+
+</tr>
+                        <tr>
+                            <td>Violence and homicide</td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhPreGradeRMale" autocomplete="off"></td>
+<td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhPreGradeRFemale" autocomplete="off"></td>
+
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeRMale" autocomplete="off"></td>
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeRFemale" autocomplete="off"></td>
+
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale1" autocomplete="off"></td>
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale1" autocomplete="off"></td>
+
+<td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale2" autocomplete="off"></td>
+<td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale2" autocomplete="off"></td>
+
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale3" autocomplete="off"></td>
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale3" autocomplete="off"></td>
+
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale4" autocomplete="off"></td>
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale4" autocomplete="off"></td>
+
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale5" autocomplete="off"></td>
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale5" autocomplete="off"></td>
+
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale6" autocomplete="off"></td>
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale6" autocomplete="off"></td>
+
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale7" autocomplete="off"></td>
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale7" autocomplete="off"></td>
+
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale8" autocomplete="off"></td>
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale8" autocomplete="off"></td>
+
+<td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale9" autocomplete="off"></td>
+<td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale9" autocomplete="off"></td>
+
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale10" autocomplete="off"></td>
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale10" autocomplete="off"></td>
+
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale11" autocomplete="off"></td>
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale11" autocomplete="off"></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMale12" autocomplete="off"></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemale12" autocomplete="off"></td>
+
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMaleSpecial" autocomplete="off"></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemaleSpecial" autocomplete="off"></td>
+
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeMaleOther" autocomplete="off"></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="vhGradeFemaleOther" autocomplete="off"></td>
+<!-- Repeat the pattern for other grades if needed -->
+<td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalviolenceAndHomicide" autocomplete="off" [value]="totalviolenceAndHomicide" name="totalviolenceAndHomicide"  [(ngModel)]="totalviolenceAndHomicide"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Other</td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherPreGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherPreGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeRMale" autocomplete="off"></td>
+                            <td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeRFemale" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale1" autocomplete="off"></td>
+                            <td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale1" autocomplete="off"></td>
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale2" autocomplete="off"></td>
+                            <td *ngIf="g2"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale2" autocomplete="off"></td>
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale3" autocomplete="off"></td>
+                            <td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale3" autocomplete="off"></td>
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale4" autocomplete="off"></td>
+                            <td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale4" autocomplete="off"></td>
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale5" autocomplete="off"></td>
+                            <td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale5" autocomplete="off"></td>
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale6" autocomplete="off"></td>
+                            <td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale6" autocomplete="off"></td>
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale7" autocomplete="off"></td>
+                            <td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale7" autocomplete="off"></td>
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale8" autocomplete="off"></td>
+                            <td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale8" autocomplete="off"></td>
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale9" autocomplete="off"></td>
+                            <td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale9" autocomplete="off"></td>
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale10" autocomplete="off"></td>
+                            <td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale10" autocomplete="off"></td>
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale11" autocomplete="off"></td>
+                            <td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale11" autocomplete="off"></td>
+                            <td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMale12" autocomplete="off"></td>
+                            <td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemale12" autocomplete="off"></td>
+                            <td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMaleSpecial" autocomplete="off"></td>
+                            <td *ngIf="gSpecial"> <input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemaleSpecial" autocomplete="off"></td>
+                            <td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeMaleOther" autocomplete="off"></td>
+                            <td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherGradeFemaleOther" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalother" autocomplete="off" [value]="totalother" name="totalother"  [(ngModel)]="totalother"></td>
+
+                        </tr>
+                        <tr  style="border: 2px solid black;">
+                            <td>Total</td>
+<td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll [value]="totalPreGradeMale" name="totalPreGradeMale"  [(ngModel)]="totalPreGradeMale" formControlName="totalPreGradeRMale" autocomplete="off" readonly></td>
+<td *ngIf="preGradeR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll [value]="totalPreGradeFemale" name="totalPreGradeFemale"  [(ngModel)]="totalPreGradeFemale" formControlName="totalPreGradeRFemale" autocomplete="off" readonly></td>
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeRMale" [value]="totalGradeRMale" name="totalGradeRMale"  [(ngModel)]="totalGradeRMale" autocomplete="off" readonly></td>
+<td *ngIf="gR"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeRFemale" [value]="totalGradeRFemale" name="totalGradeRFemale"  [(ngModel)]="totalGradeRFemale" autocomplete="off" readonly></td>
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale1" [value]="totalGradeMale1" name="totalGradeMale1"  [(ngModel)]="totalGradeMale1" autocomplete="off" readonly></td>
+<td *ngIf="g1"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale1" [value]="totalGradeFemale1" name="totalGradeFemale1"  [(ngModel)]="totalGradeFemale1" autocomplete="off" readonly></td>
+<td *ngIf="g2" ><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale2" [value]="totalGradeMale2" name="totalGradeMale2"  [(ngModel)]="totalGradeMale2" autocomplete="off" readonly></td>
+<td *ngIf="g2"> <input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale2" [value]="totalGradeFemale2" name="totalGradeFemale2"  [(ngModel)]="totalGradeFemale2" autocomplete="off" readonly></td>
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale3" [value]="totalGradeMale3" name="totalGradeMale3"  [(ngModel)]="totalGradeMale3" autocomplete="off" readonly></td>
+<td *ngIf="g3"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale3" [value]="totalGradeFemale3" name="totalGradeFemale3"  [(ngModel)]="totalGradeFemale3" autocomplete="off" readonly></td>
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale4" [value]="totalGradeMale4" name="totalGradeMale4"  [(ngModel)]="totalGradeMale4" autocomplete="off" readonly></td>
+<td *ngIf="g4"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale4" [value]="totalGradeFemale4" name="totalGradeFemale4"  [(ngModel)]="totalGradeFemale4" autocomplete="off" readonly></td>
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale5"  [value]="totalGradeMale5" name="totalGradeMale5"  [(ngModel)]="totalGradeMale5"autocomplete="off" readonly></td>
+<td *ngIf="g5"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale5" [value]="totalGradeFemale5" name="totalGradeFemale5"  [(ngModel)]="totalGradeFemale5" autocomplete="off" readonly></td>
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale6" [value]="totalGradeMale6" name="totalGradeMale6"  [(ngModel)]="totalGradeMale6" autocomplete="off" readonly></td>
+<td *ngIf="g6"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale6" [value]="totalGradeFemale6" name="totalGradeFemale6"  [(ngModel)]="totalGradeFemale6" autocomplete="off" readonly></td>
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale7"[value]="totalGradeMale7" name="totalGradeMale7"  [(ngModel)]="totalGradeMale7" autocomplete="off" readonly></td>
+<td *ngIf="g7"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale7" [value]="totalGradeFemale7" name="totalGradeFemale7"  [(ngModel)]="totalGradeFemale7" autocomplete="off" readonly></td>
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale8" [value]="totalGradeMale8" name="totalGradeMale8"  [(ngModel)]="totalGradeMale8" autocomplete="off" readonly></td>
+<td *ngIf="g8"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale8" [value]="totalGradeFemale8" name="totalGradeFemale8"  [(ngModel)]="totalGradeFemale8" autocomplete="off" readonly></td>
+<td *ngIf="g9"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale9" [value]="totalGradeMale9" name="totalGradeMale9"  [(ngModel)]="totalGradeMale9" autocomplete="off" readonly></td>
+<td *ngIf="g9"> <input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale9" [value]="totalGradeFemale9" name="totalGradeFemale9"  [(ngModel)]="totalGradeFemale9" autocomplete="off" readonly></td>
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale10" [value]="totalGradeMale10" name="totalGradeMale10"  [(ngModel)]="totalGradeMale10" autocomplete="off" readonly></td>
+<td *ngIf="g10"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale10" [value]="totalGradeFemale10" name="totalGradeFemale10"  [(ngModel)]="totalGradeFemale10" autocomplete="off" readonly></td>
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale11" [value]="totalGradeMale11" name="totalGradeMale11"  [(ngModel)]="totalGradeMale11" autocomplete="off" readonly></td>
+<td *ngIf="g11"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale11" [value]="totalGradeFemale11" name="totalGradeFemale11"  [(ngModel)]="totalGradeFemale11" autocomplete="off" readonly></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMale12" [value]="totalGradeMale12" name="totalGradeMale12"  [(ngModel)]="totalGradeMale12" autocomplete="off" readonly></td>
+<td *ngIf="g12"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemale12" [value]="totalGradeFemale12" name="totalGradeFemale12"  [(ngModel)]="totalGradeFemale12" autocomplete="off" readonly></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMaleSpecial" [value]="totalGradeMaleSpecial" name="totalGradeMaleSpecial"  [(ngModel)]="totalGradeMaleSpecial" autocomplete="off" readonly></td>
+<td *ngIf="gSpecial"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemaleSpecial" [value]="totalGradeFemaleSpecial" name="totalGradeFemaleSpecial"  [(ngModel)]="totalGradeFemaleSpecial" autocomplete="off" readonly></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeMaleOther" [value]="totalGradeMaleOther" name="totalGradeMaleOther"  [(ngModel)]="totalGradeMaleOther" autocomplete="off" readonly></td>
+<td *ngIf="gOther"><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalGradeFemaleOther" [value]="totalGradeFemaleOther" name="totalGradeFemaleOther"  [(ngModel)]="totalGradeFemaleOther"autocomplete="off" readonly></td>
+<td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="grandTotal" autocomplete="off" [value]="grandTotal" name="grandTotal"  [(ngModel)]="grandTotal"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button mat-button  (click)="closeDialog()" >Cancel</button>
+                    <button class="btn btn-success" (click)="onSubmit()" >Save & Continue</button>
+                  </div>
+            </div>
+            
+           
+        </form>
+    </div>
+     
+    </div>

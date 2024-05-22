@@ -1,0 +1,315 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <h2 class="title-log" style="text-align: center;">Learner Home Language</h2>
+  <div class="title-log" >
+    <p style="text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+    <ol>
+        <li>Kindly input the total number of male and female learners across all grades by their chosen Home Language.</li>
+        <li>The total number of males and females by Home Language will be calculated automatically.</li>
+    </ol>
+    
+       
+    
+</div>
+
+<div class="mat-dialog-content">
+    <form [formGroup]="homeLanguageForm">
+            
+        <div class="row">
+            <p><strong>Afrikaans</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleAfrikaans" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleAfrikaans" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalAfrikaans" autocomplete="off"   [value]="gradeTotalAfrikaans" name="gradeTotalAfrikaans"  [(ngModel)]="gradeTotalAfrikaans" readonly>
+            </mat-form-field>
+        
+        </div>
+        <div class="row">
+            <p><strong>English</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleEnglish" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleEnglish" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalEnglish" autocomplete="off"   [value]="gradeTotalEnglish" name="gradeTotalEnglish"  [(ngModel)]="gradeTotalEnglish" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>IsiNdebele</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleIsiNdebele" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleIsiNdebele" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalIsiNdebele" autocomplete="off"   [value]="gradeTotalIsiNdebele" name="gradeTotalIsiNdebele"  [(ngModel)]="gradeTotalIsiNdebele" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>SiSwati</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSiSwati" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSiSwati" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSiSwati" autocomplete="off"   [value]="gradeTotalSiSwati" name="gradeTotalSiSwati"  [(ngModel)]="gradeTotalSiSwati" readonly>
+            </mat-form-field>
+            
+        </div>
+        <div class="row">
+            <p><strong>IsiXhosa</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleIsiXhosa" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleIsiXhosa" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalIsiXhosa" autocomplete="off"   [value]="gradeTotalIsiXhosa" name="gradeTotalIsiXhosa"  [(ngModel)]="gradeTotalIsiXhosa" readonly>
+            </mat-form-field>
+           
+        </div>
+        <div class="row">
+            <p><strong>IsiZulu</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleIsiZulu" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleIsiZulu" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalIsiZulu" autocomplete="off"   [value]="gradeTotalIsiZulu" name="gradeTotalIsiZulu"  [(ngModel)]="gradeTotalIsiZulu" readonly>
+            </mat-form-field>
+            
+        </div>
+        <div class="row">
+            <p><strong>SeSotho</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSeSotho" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSeSotho" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSeSotho" autocomplete="off"   [value]="gradeTotalSeSotho" name="gradeTotalSeSotho"  [(ngModel)]="gradeTotalSeSotho" readonly>
+            </mat-form-field>
+           
+        </div>
+        <div class="row">
+            <p><strong>SePedi</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSePedi" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSePedi" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSePedi" autocomplete="off"   [value]="gradeTotalSePedi" name="gradeTotalSePedi"  [(ngModel)]="gradeTotalSePedi" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>SeTswana</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSeTswana" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSeTswana" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSeTswana" autocomplete="off"   [value]="gradeTotalSeTswana" name="gradeTotalSeTswana"  [(ngModel)]="gradeTotalSeTswana" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>TshiVenda</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleTshiVenda" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleTshiVenda" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalTshiVenda" autocomplete="off"   [value]="gradeTotalTshiVenda" name="gradeTotalTshiVenda"  [(ngModel)]="gradeTotalTshiVenda" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>XiTsonga</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleXiTsonga" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleXiTsonga" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalXiTsonga" autocomplete="off"   [value]="gradeTotalXiTsonga" name="gradeTotalXiTsonga"  [(ngModel)]="gradeTotalXiTsonga" readonly>
+            </mat-form-field>
+            
+        </div>
+        <div class="row">
+            <p><strong>Sign Language </strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleSignLanguage" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleSignLanguage" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalSignLanguage" autocomplete="off"   [value]="gradeTotalSignLanguage" name="gradeTotalSignLanguage"  [(ngModel)]="gradeTotalSignLanguage" readonly>
+            </mat-form-field>
+            
+        </div>
+        <div class="row">
+            <p><strong>Other</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeMaleOther" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeFemaleOther" autocomplete="off"  >
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="gradeTotalOther" autocomplete="off"  [value]="gradeTotalOther" name="gradeTotalOther"  [(ngModel)]="gradeTotalOther" readonly>
+            </mat-form-field>
+            
+        </div>
+
+        <div class="row">
+            <p><strong>Total</strong></p>
+            <br>
+            <br>
+            <mat-form-field   appearance="outline">
+                <mat-label>Total Male</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="malesTotal" autocomplete="off"   [value]="malesTotal" name="malesTotal"  [(ngModel)]="malesTotal" readonly>
+            </mat-form-field>
+
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total Female</mat-label>
+                <input matInput placeholder=""type="number" noScroll formControlName="femalesTotal" autocomplete="off"   [value]="femalesTotal" name="femalesTotal"  [(ngModel)]="femalesTotal" readonly>
+            </mat-form-field>
+
+            <mat-form-field   appearance="outline">
+                <mat-label>Total</mat-label>
+                <input matInput placeholder=""type="number" noScroll autocomplete="off"  formControlName="grandTotal"   [value]="grandTotal" name="grandTotal"  [(ngModel)]="grandTotal" readonly>
+            </mat-form-field>
+            
+        </div>
+        
+            <div>
+                <button mat-button  (click)="closeDialog()" >Cancel</button>
+                <button class="btn btn-success" (click)="onSubmit()" >Save & Continue</button>
+              </div>
+        
+</form> 
+    </div>

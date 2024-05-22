@@ -1,0 +1,717 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between">
+  
+        <a class="logo"><img class="logo"src="assets/images/gdelogo1.png" alt=""></a>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a mat-button >{{schoolDetails.institutionName}}</a></li>
+            <li><a mat-button (click)="cancelSurvey()" >Log Out</a></li>
+          </ul>
+          <!-- <i class="bi bi-list mobile-nav-toggle"  (click)="toggleMobileNav($event)"></i> -->
+        </nav><!-- .navbar -->
+
+      </div>
+    </header>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <!-- Add Content Here -->
+   
+  
+<div class="contaier">
+  <br>
+<mat-card class="in-progress" *ngIf="progressStatus === 3">
+  <h4>Survey Status: <span>In Progress</span></h4>
+</mat-card >
+
+<mat-card class="success" *ngIf="progressStatus !== 3">
+  <h4>Survey Status: <span>All Completed</span></h4>
+</mat-card >
+
+
+  
+  <mat-card>
+    <table class="table"   *ngIf="institutionType !== 1 ">
+      <caption>Snap Survey 
+        <!-- <button class="btn btn-success" *ngIf="progressValue" (click)="finalSubmit()">Submit Survey</button> -->
+        <div  *ngIf="progressValue">
+          <p style="color: #005AA7;">Please click the Download pdf button and confirm the information captured on the Summary Report. <br>If everything is captured correctly, you can click the Submit Survey button. <br>
+            However, if you wish to make any changes, click the pencil icon under <strong>Add/Edit</strong> in the relevant section/s and complete your corrections. <br>
+            Thereafter, recheck and submit.
+            </p>
+         <div style="float: left; width: 50%;">
+          <button class="btn btn-secondary" (click)="download()">Download pdf</button>
+         </div>
+         <div style="float: left; width: 50%;" *ngIf="sbmt">
+          <button class="btn btn-success" (click)="finalSubmit()">Submit Survey</button>
+         </div>
+       
+
+        </div>
+    </caption>
+      
+      <thead style="background-color: #ad9961;color: #fff;">
+        <tr >
+          
+          <th scope="col"></th>
+          <th scope="col">Add/Edit</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+          <td>1. School General Details</td>
+          <td><mat-icon matTooltip="Edit"  style="cursor: pointer; color: #ad9961" (click)="editSchoolSurvey()">
+          edit
+      </mat-icon></td>
+          <td  [style.background-color]="getStatusColor(generalDetailsStatus)"  style="color:#fff;">
+            <ng-container *ngIf="generalDetailsStatus ===1" >
+            Completed
+           </ng-container>
+           <ng-container *ngIf="generalDetailsStatus !== 1">
+             Not Started
+           </ng-container>
+   
+   </td>
+        </tr>
+        <tr>
+      
+          <td>2. Learners by Gender and Grade </td>
+          <td  > <mat-icon matTooltip="Add" color="primary" style="cursor: pointer;"  (click)="addLearners()" *ngIf="learnersPerClassStatus !== 1">
+            add
+        </mat-icon> <mat-icon matTooltip="Edit" style="cursor: pointer; color: #ad9961" (click)="editLearners()"   *ngIf="learnersPerClassStatus === 1">
+          edit
+      </mat-icon></td>          
+
+        <td  [style.background-color]="getStatusColor(learnersPerClassStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnersPerClassStatus === 1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnersPerClassStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+          <td>3. Learner Repetition</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnersPerClassStatus !== 1}" (click)="addRepeaters()" style="cursor: pointer;"   *ngIf="repeaterStatus !== 1" >
+            add
+        </mat-icon>
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editRepeaters()" style="cursor: pointer; color: #ad9961"   *ngIf="repeaterStatus === 1">
+          edit
+      </mat-icon>
+      </td> 
+      <td  [style.background-color]="getStatusColor(repeaterStatus)" style="color:#fff;">
+        <ng-container *ngIf="repeaterStatus ===1" >
+        Completed
+       </ng-container>
+       <ng-container *ngIf="repeaterStatus !== 1">
+         Not Started
+       </ng-container>
+      </td>
+        </tr>
+        
+        <tr>
+          <td>4. Learner Home Language </td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': repeaterStatus !== 1}" (click)="addHomeLanguage()" style="cursor: pointer;" *ngIf="homeLanguageStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editHomeLanguage()" style="cursor: pointer; color: #ad9961" *ngIf="homeLanguageStatus === 1" >
+          edit
+      </mat-icon></td>         
+        <td  [style.background-color]="getStatusColor(homeLanguageStatus)" style="color:#fff;">
+          <ng-container *ngIf="homeLanguageStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="homeLanguageStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+      </td>
+        </tr>
+        <tr>
+      
+          <td>5. Learner Migration	</td>
+          <td><mat-icon matTooltip="Add" color="primary"[ngClass]="{'disabled-icon': homeLanguageStatus !== 1}" (click)=" addMigrations()" style="cursor: pointer;" *ngIf="migrationStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editMigration()" style="cursor: pointer; color: #ad9961" *ngIf="migrationStatus === 1" >
+          edit
+      </mat-icon></td>        
+        <td  [style.background-color]="getStatusColor(migrationStatus)" style="color:#fff;">
+          <ng-container *ngIf="migrationStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="migrationStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+      
+          <td>6. Personnel Information	</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': migrationStatus !== 1}" (click)=" addPersonnel()" style="cursor: pointer;" *ngIf="personnelStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnel()" style="cursor: pointer; color: #ad9961" *ngIf="personnelStatus === 1" >
+          edit
+      </mat-icon></td>
+        <td  [style.background-color]="getStatusColor(personnelStatus)" style="color:#fff;">
+          <ng-container *ngIf="personnelStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="personnelStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td>7. Learner Pregnancy (2023)</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': personnelStatus !== 1}" (click)=" addPregnant()" style="cursor: pointer;" *ngIf="pregnantStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPregnant()" style="cursor: pointer; color: #ad9961" *ngIf="pregnantStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(pregnantStatus)" style="color:#fff;">
+          <ng-container *ngIf="pregnantStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="pregnantStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td>8. Learner Mortality (2023)</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': pregnantStatus !== 1}" (click)=" addLearnersMortality()" style="cursor: pointer;" *ngIf="learnerMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editLearnersMortality()" style="cursor: pointer; color: #ad9961" *ngIf="learnerMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(learnerMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnerMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnerMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td>9. Staff Mortality (2023)  </td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnerMortalityStatus !== 1}" (click)=" addPersonnelMortality()" style="cursor: pointer;" *ngIf="PersonnelMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnelMortality()" style="cursor: pointer; color: #ad9961" *ngIf="PersonnelMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(PersonnelMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="PersonnelMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="PersonnelMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+      
+      </tbody>
+    </table>
+
+
+    <table class="table"   *ngIf="institutionType == 1 && schoolOfSpecialisation">
+      <caption>Snap Survey 
+          <!-- <button class="btn btn-success" *ngIf="progressValue" (click)="finalSubmit()">Submit Survey</button> -->
+          <div  *ngIf="progressValue">
+            <p style="color: #005AA7;">Please click the Download pdf button and confirm the information captured on the Summary Report. <br>If everything is captured correctly, you can click the Submit Survey button. <br>
+              However, if you wish to make any changes, click the pencil icon under <strong>Add/Edit</strong> in the relevant section/s and complete your corrections. <br>
+              Thereafter, recheck and submit.
+              </p>
+
+           <div style="float: left; width: 50%;">
+            <button class="btn btn-secondary" (click)="download()">Download pdf</button>
+           </div>
+           <div style="float: left; width: 50%;" *ngIf="sbmt">
+            <button class="btn btn-success" (click)="finalSubmit()">Submit Survey</button>
+           </div>
+         
+
+          </div>
+      </caption>
+      
+      <thead style="background-color: #ad9961;color: #fff;">
+        <tr >
+          
+          <th scope="col"></th>
+          <th scope="col">Add/Edit</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+          <td>1. School General Details</td>
+          <td><mat-icon matTooltip="Edit"  style="cursor: pointer; color: #ad9961" (click)="editSchoolSurvey()">
+          edit
+      </mat-icon></td>
+          <td  [style.background-color]="getStatusColor(generalDetailsStatus)"  style="color:#fff;">
+            <ng-container *ngIf="generalDetailsStatus ===1" >
+            Completed
+           </ng-container>
+           <ng-container *ngIf="generalDetailsStatus !== 1">
+             Not Started
+           </ng-container>
+   
+   </td>
+        </tr>
+        <tr>
+      
+          <td>2. Learners by Gender and Grade </td>
+          <td  > <mat-icon matTooltip="Add" color="primary" style="cursor: pointer;"  (click)="addLearners()" *ngIf="learnersPerClassStatus !== 1">
+            add
+        </mat-icon> <mat-icon matTooltip="Edit" style="cursor: pointer; color: #ad9961" (click)="editLearners()"   *ngIf="learnersPerClassStatus === 1">
+          edit
+      </mat-icon></td>          
+
+        <td  [style.background-color]="getStatusColor(learnersPerClassStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnersPerClassStatus === 1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnersPerClassStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+          <td>3. Learner Repetition</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnersPerClassStatus !== 1}" (click)="addRepeaters()" style="cursor: pointer;"   *ngIf="repeaterStatus !== 1" >
+            add
+        </mat-icon>
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editRepeaters()" style="cursor: pointer; color: #ad9961"   *ngIf="repeaterStatus === 1">
+          edit
+      </mat-icon>
+      </td> 
+      <td  [style.background-color]="getStatusColor(repeaterStatus)" style="color:#fff;">
+        <ng-container *ngIf="repeaterStatus ===1" >
+        Completed
+       </ng-container>
+       <ng-container *ngIf="repeaterStatus !== 1">
+         Not Started
+       </ng-container>
+      </td>
+        </tr>
+        
+        <tr>
+          <td>4. ⁠Learner Home Language</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': repeaterStatus !== 1}" (click)="addHomeLanguage()" style="cursor: pointer;" *ngIf="homeLanguageStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editHomeLanguage()" style="cursor: pointer; color: #ad9961" *ngIf="homeLanguageStatus === 1" >
+          edit
+      </mat-icon></td>         
+        <td  [style.background-color]="getStatusColor(homeLanguageStatus)" style="color:#fff;">
+          <ng-container *ngIf="homeLanguageStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="homeLanguageStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+      </td>
+        </tr>
+        <tr>
+      
+          <td>5. Learner Migration	</td>
+          <td><mat-icon matTooltip="Add" color="primary"[ngClass]="{'disabled-icon': homeLanguageStatus !== 1}" (click)=" addMigrations()" style="cursor: pointer;" *ngIf="migrationStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editMigration()" style="cursor: pointer; color: #ad9961" *ngIf="migrationStatus === 1" >
+          edit
+      </mat-icon></td>        
+        <td  [style.background-color]="getStatusColor(migrationStatus)" style="color:#fff;">
+          <ng-container *ngIf="migrationStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="migrationStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+      
+          <td>6. Personnel Information	</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': migrationStatus !== 1}" (click)=" addPersonnel()" style="cursor: pointer;" *ngIf="personnelStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnel()" style="cursor: pointer; color: #ad9961" *ngIf="personnelStatus === 1" >
+          edit
+      </mat-icon></td>
+        <td  [style.background-color]="getStatusColor(personnelStatus)" style="color:#fff;">
+          <ng-container *ngIf="personnelStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="personnelStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td >7. Learner Pregnancy (2023)</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': personnelStatus !== 1}" (click)=" addPregnant()" style="cursor: pointer;" *ngIf="pregnantStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPregnant()" style="cursor: pointer; color: #ad9961" *ngIf="pregnantStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(pregnantStatus)" style="color:#fff;">
+          <ng-container *ngIf="pregnantStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="pregnantStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td >8. Learner Mortality (2023)</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': pregnantStatus !== 1}" (click)=" addLearnersMortality()" style="cursor: pointer;" *ngIf="learnerMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editLearnersMortality()" style="cursor: pointer; color: #ad9961" *ngIf="learnerMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(learnerMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnerMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnerMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td >9. Staff Mortality (2023)  </td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnerMortalityStatus !== 1}" (click)=" addPersonnelMortality()" style="cursor: pointer;" *ngIf="PersonnelMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnelMortality()" style="cursor: pointer; color: #ad9961" *ngIf="PersonnelMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(PersonnelMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="PersonnelMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="PersonnelMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+      
+      </tbody>
+    </table>
+
+
+    <table class="table"  *ngIf="institutionType === 1 && !schoolOfSpecialisation">
+      <caption>Snap Survey 
+        <!-- <button class="btn btn-success" *ngIf="progressValue" (click)="finalSubmit()">Submit Survey</button> -->
+        <div  *ngIf="progressValue">
+          <p style="color: #005AA7;">Please click the Download pdf button and confirm the information captured on the Summary Report. <br>If everything is captured correctly, you can click the Submit Survey button. <br>
+          However, if you wish to make any changes, click the pencil icon under <strong>Add/Edit</strong> in the relevant section/s and complete your corrections. <br>
+          Thereafter, recheck and submit.
+          </p>
+         <div style="float: left; width: 50%;">
+          <button class="btn btn-secondary" (click)="download()">Download pdf</button>
+         </div>
+         <div style="float: left; width: 50%;" *ngIf="sbmt">
+          <button class="btn btn-success" (click)="finalSubmit()">Submit Survey</button>
+         </div>
+       
+
+        </div>
+    </caption>
+      
+      <thead style="background-color: #ad9961;color: #fff;">
+        <tr >
+          
+          <th scope="col"></th>
+          <th scope="col">Add/Edit</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+          <td>1. School General Details</td>
+          <td><mat-icon matTooltip="Edit"  style="cursor: pointer; color: #ad9961" (click)="editSchoolSurvey()">
+          edit
+      </mat-icon></td>
+          <td  [style.background-color]="getStatusColor(generalDetailsStatus)"  style="color:#fff;">
+            <ng-container *ngIf="generalDetailsStatus ===1" >
+            Completed
+           </ng-container>
+           <ng-container *ngIf="generalDetailsStatus !== 1">
+             Not Started
+           </ng-container>
+   
+   </td>
+        </tr>
+        <tr>
+      
+          <td>2. Learners by Gender and Grade </td>
+          <td  > <mat-icon matTooltip="Add" color="primary" style="cursor: pointer;"  (click)="addLearners()" *ngIf="learnersPerClassStatus !== 1">
+            add
+        </mat-icon> <mat-icon matTooltip="Edit" style="cursor: pointer; color: #ad9961" (click)="editLearners()"   *ngIf="learnersPerClassStatus === 1">
+          edit
+      </mat-icon></td>          
+
+        <td  [style.background-color]="getStatusColor(learnersPerClassStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnersPerClassStatus === 1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnersPerClassStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+      
+          <td>3. Learner Repetition
+          </td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnersPerClassStatus !== 1}" (click)="addRepeaters()" style="cursor: pointer;"   *ngIf="repeaterStatus !== 1" >
+            add
+        </mat-icon>
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editRepeaters()" style="cursor: pointer; color: #ad9961"   *ngIf="repeaterStatus === 1">
+          edit
+      </mat-icon>
+      </td> 
+      <td  [style.background-color]="getStatusColor(repeaterStatus)" style="color:#fff;">
+        <ng-container *ngIf="repeaterStatus ===1" >
+        Completed
+       </ng-container>
+       <ng-container *ngIf="repeaterStatus !== 1">
+         Not Started
+       </ng-container>
+
+</td>
+        </tr>
+        <tr>
+      
+          <td>4. ⁠Learner Home Language</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': repeaterStatus !== 1}" (click)="addHomeLanguage()" style="cursor: pointer;" *ngIf="homeLanguageStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editHomeLanguage()" style="cursor: pointer; color: #ad9961" *ngIf="homeLanguageStatus === 1" >
+          edit
+      </mat-icon></td>         
+        <td  [style.background-color]="getStatusColor(homeLanguageStatus)" style="color:#fff;">
+          <ng-container *ngIf="homeLanguageStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="homeLanguageStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+      </td>
+        </tr>
+        <tr>
+      
+          <td>5. Learner Migration	</td>
+          <td><mat-icon matTooltip="Add" color="primary"[ngClass]="{'disabled-icon': homeLanguageStatus !== 1}" (click)=" addMigrations()" style="cursor: pointer;" *ngIf="migrationStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editMigration()" style="cursor: pointer; color: #ad9961" *ngIf="migrationStatus === 1" >
+          edit
+      </mat-icon></td>        
+        <td  [style.background-color]="getStatusColor(migrationStatus)" style="color:#fff;">
+          <ng-container *ngIf="migrationStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="migrationStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+      
+          <td>6. Personnel Information	</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': migrationStatus !== 1}" (click)=" addPersonnel()" style="cursor: pointer;" *ngIf="personnelStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnel()" style="cursor: pointer; color: #ad9961" *ngIf="personnelStatus === 1" >
+          edit
+      </mat-icon></td>
+        <td  [style.background-color]="getStatusColor(personnelStatus)" style="color:#fff;">
+          <ng-container *ngIf="personnelStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="personnelStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td>7. Learner Pregnancy (2023)	</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': personnelStatus !== 1}" (click)=" addPregnant()" style="cursor: pointer;" *ngIf="pregnantStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPregnant()" style="cursor: pointer; color: #ad9961" *ngIf="pregnantStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(pregnantStatus)" style="color:#fff;">
+          <ng-container *ngIf="pregnantStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="pregnantStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+          <td>8. Learner Disabilities</td>
+          <td>  <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': pregnantStatus !== 1}" (click)="addDisability()" style="cursor: pointer;"   *ngIf="disibalityStatus !== 1" >
+            add
+        </mat-icon>
+        <mat-icon matTooltip="Edit" color="primary" (click)="editDisability()" style="cursor: pointer; color: #ad9961"   *ngIf="disibalityStatus === 1">
+          edit
+      </mat-icon></td>
+        <td  [style.background-color]="getStatusColor(disibalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="disibalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="disibalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+        <tr>
+      
+          <td >9. Learner Mortality (2023)</td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': disibalityStatus !== 1}" (click)=" addLearnersMortality()" style="cursor: pointer;" *ngIf="learnerMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editLearnersMortality()" style="cursor: pointer; color: #ad9961" *ngIf="learnerMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(learnerMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="learnerMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="learnerMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+
+        <tr>
+      
+          <td >10. Staff Mortality (2023)  </td>
+          <td> <mat-icon matTooltip="Add" color="primary" [ngClass]="{'disabled-icon': learnerMortalityStatus !== 1}" (click)=" addPersonnelMortality()" style="cursor: pointer;" *ngIf="PersonnelMortalityStatus !== 1" >
+            add
+        </mat-icon>
+      
+        <mat-icon matTooltip="Edit" color="primary" (click)=" editPersonnelMortality()" style="cursor: pointer; color: #ad9961" *ngIf="PersonnelMortalityStatus === 1" >
+          edit
+      </mat-icon></td>
+
+        <td  [style.background-color]="getStatusColor(PersonnelMortalityStatus)" style="color:#fff;">
+          <ng-container *ngIf="PersonnelMortalityStatus ===1" >
+          Completed
+         </ng-container>
+         <ng-container *ngIf="PersonnelMortalityStatus !== 1">
+           Not Started
+         </ng-container>
+ 
+ </td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </mat-card>
+</div>
+<br>
+<br>
+<br>
+<footer id="footer">
+
+    
+  <div class="container d-md-flex py-4">
+
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>EMIS SNAP SURVEY 2024</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://GDEHeadCountWeb.gauteng.gov.za/"> Gauteng Department of Education</a>
+      </div>
+    </div>
+   
+  </div>
+</footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -1,0 +1,441 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;text-align: center;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <div *ngIf="sectorTypeId === 1">
+
+
+  <h2 class="title-log" style="text-align: center;text-align: center;">Personnel Information </h2>
+  <div class="title-log" >
+    <p style="text-align: center;text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+    <ol>
+        <li>Kindly input the total number of male and female staff members across all employment categories and ranks at the school.</li>
+        <li>Please note that Public school staff categories comprise of both State-Paid and Privately Paid (SGB-Appointed) staff members.</li>
+        <li>All Independent school appointments comprise of Privately Paid staff members only.</li>
+        <li>Staff members by gender that are employed on both a part-time and full-time basis need to also be counted.</li>
+        <li>Staff members that are acting in a higher post must be accounted for in their appointed positions and NOT in their acting positions.</li>
+        <li>The Educator, Administrative and Support staff categories cannot contain nil (0) values</li>
+        <li>Please ensure that you address all staff categories. Kindly use the scroll bar below the “Save and Continue” button to view all categories across the page or use the Zoom function on your browser to see the full table.</li>
+    </ol>
+      
+       
+    
+</div>
+  <div class="mat-dialog-content">
+    
+        <div style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;'>
+            <div style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;'>
+            
+                <p style='margin:0cm;font-size:16px;font-family:"Times New Roman",serif;'><strong><span style='font-family:"Arial",sans-serif;color:#222222;'>Personnel Information (indicate APPOINTED positions only, NOT Acting)</span></strong></p>
+           
+       </div>
+        </div>
+        <div class="container">
+            <form [formGroup]="statePaidForm">
+               
+                <table class="table table-bordered"style="width:100%" >
+                    <thead>
+                        <tr>
+                            <th rowspan="3" style="width:170.45pt;text-align: center;">STAFF</th>
+                            <th colspan="4" style="width:165.45pt;text-align: center;text-align: center;">State Paid</th>
+                            <th colspan="4" style="width:165.55pt;text-align: center;">Privately Employed / Governing Body Paid</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2" style="width: 120px;text-align: center;">Full-time</th>
+                            <th colspan="2" style="width: 120px;text-align: center;">Part-time</th>
+                            <th colspan="2" style="width: 120px;text-align: center;">Full-time</th>
+                            <th colspan="2" style="width: 120px;text-align: center;">Part-time</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 120px;text-align: center;">Male</th>
+                            <th style="width: 120px;text-align: center;">Female</th>
+                            <th style="width: 120px;text-align: center;">Male</th>
+                            <th style="width: 120px;text-align: center;">Female</th>
+                            <th style="width: 120px;text-align: center;">Male</th>
+                            <th style="width: 120px;text-align: center;">Female</th>
+                            <th style="width: 120px;text-align: center;">Male</th>
+                            <th style="width: 120px;text-align: center;">Female</th>
+                            <th style="width: 120px;text-align: center;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows under State Paid section -->
+                        <tr>
+                            <td>Principal</td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMalePrincipal" placeholder="" autocomplete="off" style="width: 100%;text-align: center;"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemalePrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll value="0" readonly  placeholder="" autocomplete="off" disabled></td>
+                            <td><input class="form-control"type="number" noScroll value="0" readonly  placeholder="" autocomplete="off" disabled></td>
+                            
+                            <td><input class="form-control"type="number" noScroll value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll  value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll  value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll  value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="principalTotal" [value]="principalTotal" name="principalTotal"  [(ngModel)]="principalTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <!-- Add more rows under State Paid section and Privately Employed / Governing Body Paid section as needed -->
+                        <tr>
+                            <td>Deputy Principal</td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll  value="0" readonly disabled disabled placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="deputyPrincipalTotal" [value]="deputyPrincipalTotal" name="deputyPrincipalTotal"  [(ngModel)]="deputyPrincipalTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <!-- Add more rows as needed -->
+                        <tr>
+                            <td>Head of Department</td>
+                            <!-- Columns for Head of Department -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll  value="0" readonly disabled placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="headOfDepartmentTotal" [value]="headOfDepartmentTotal" name="headOfDepartmentTotal"  [(ngModel)]="headOfDepartmentTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <div *ngIf="statePaidForm.get('statePaidFullTimeMaleEducators').value < 0 && statePaidForm.get('statePaidFullTimeMaleEducators').touched">
+                            <p style="color: red;text-align: center;">Full-time Male Educators cannot be less than 0.</p>
+                          </div>
+                          <div *ngIf="statePaidForm.get('statePaidFullTimeFemaleEducators').value < 0 && statePaidForm.get('statePaidFullTimeFemaleEducators').touched">
+                            <p style="color: red;text-align: center;">Full-time Female Educators cannot be less than 0.</p>
+                          </div>
+
+                          <div *ngIf="statePaidForm.get('statePaidFullTimeMaleEducators').hasError('required') && statePaidForm.get('statePaidFullTimeMaleEducators').touched">
+                            <p style="color: red;text-align: center;">Full-time Male Educators field is required.</p>
+                          </div>
+
+                          <div *ngIf="statePaidForm.get('statePaidFullTimeMaleEducators').hasError('required') && statePaidForm.get('statePaidFullTimeMaleEducators').touched">
+                            <p style="color: red;text-align: center;"> Full-time Female Educators field is required.</p>
+                          </div>
+
+                          <div *ngIf="statePaidForm.get('statePaidPartTimeMaleEducators').value < 0 && statePaidForm.get('statePaidPartTimeFemaleEducators').touched">
+                            <p style="color: red;text-align: center;">Male Educators cannot be less than 0.</p>
+                          </div>
+                          <div *ngIf="statePaidForm.get('statePaidPartTimeFemaleEducators').value < 0 && statePaidForm.get('statePaidPartTimeFemaleEducators').touched">
+                            <p style="color: red;text-align: center;">Female Educators cannot be less than 0.</p>
+                          </div>
+
+                         
+                        <tr>
+                            <td>Educators</td>
+                            <!-- Columns for Educators -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('statePaidFullTimeMaleEducators').invalid && statePaidForm.get('statePaidFullTimeMaleEducators').dirty}">
+                                </td>
+                              
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('statePaidFullTimeFemaleEducators').invalid && statePaidForm.get('statePaidFullTimeFemaleEducators').dirty}" ></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('statePaidPartTimeMaleEducators').invalid && statePaidForm.get('statePaidPartTimeMaleEducators').dirty}"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleEducators" placeholder="" autocomplete="off"[ngClass]="{'error-border': statePaidForm.get('statePaidPartTimeFemaleEducators').invalid && statePaidForm.get('statePaidPartTimeFemaleEducators').dirty}"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('governingBodyPaidFullTimeMaleEducators').invalid && statePaidForm.get('governingBodyPaidFullTimeMaleEducators').dirty}"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('governingBodyPaidFullTimeFemaleEducators').invalid && statePaidForm.get('governingBodyPaidFullTimeFemaleEducators').dirty}"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleEducators" placeholder="" autocomplete="off" [ngClass]="{'error-border': statePaidForm.get('governingBodyPaidPartTimeMaleEducators').invalid && statePaidForm.get('governingBodyPaidPartTimeMaleEducators').dirty}"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="educatorsTotal" [value]="educatorsTotal" name="educatorsTotal"  [(ngModel)]="educatorsTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td>Professional non-teaching staff</td>
+                            <!-- Columns for Professional non-teaching staff -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="professionalNonTeachingStaffTotal" [value]="professionalNonTeachingStaffTotal" name="professionalNonTeachingStaffTotal"  [(ngModel)]="professionalNonTeachingStaffTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Administrative staff</td>
+                            <!-- Columns for Administrative staff -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="administrativeStaffTotal" [value]="administrativeStaffTotal" name="administrativeStaffTotal"  [(ngModel)]="administrativeStaffTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Support staff</td>
+                            <!-- Columns for Support staff -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="supportstaffTotal" [value]="supportstaffTotal" name="supportstaffTotal"  [(ngModel)]="supportstaffTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <tr  *ngIf="gR || preGradeR">
+                            <td>Early Childhood Development (ECD) Practitioners</td>
+                            <!-- Columns for ECD Practitioners -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off" required></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off" required></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="earlyChildhoodDevelopmentTotal" [value]="earlyChildhoodDevelopmentTotal" name="earlyChildhoodDevelopmentTotal"  [(ngModel)]="earlyChildhoodDevelopmentTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <tr *ngIf="gSpecial">
+                            <td>Special Class Educators</td>
+                            <!-- Columns for Special Class Educators -->
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeMaleSpecialClassEducators" placeholder="" autocomplete="off" required></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidFullTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"required></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeMaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="statePaidPartTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <!-- Columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="specialClassEducatorsTotal" [value]="specialClassEducatorsTotal" name="specialClassEducatorsTotal"  [(ngModel)]="specialClassEducatorsTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        <tr style="border: 2px solid black;text-align: center;">
+                            <td><strong>Total</strong></td>
+                            <!-- Columns for Total counts -->
+                            <td><input class="form-control"type="number" noScroll formControlName="stateTotalMaleFullTime" [value]="stateTotalMaleFullTime" name="stateTotalMaleFullTime"  [(ngModel)]="stateTotalMaleFullTime" readonly placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="stateTotalFemaleFullTime" [value]="stateTotalFemaleFullTime" name="stateTotalFemaleFullTime"  [(ngModel)]="stateTotalFemaleFullTime" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="stateTotalMalePartTime" [value]="stateTotalMalePartTime" name="stateTotalMalePartTime"  [(ngModel)]="stateTotalMalePartTime" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="stateTotalFemalePartTime" [value]="stateTotalFemalePartTime" name="stateTotalFemalePartTime"  [(ngModel)]="stateTotalFemalePartTime" placeholder="" autocomplete="off"></td>
+                            <!-- Empty columns for Privately Employed / Governing Body Paid section -->
+                            <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalMaleFullTime" [value]="privatelyTotalMaleFullTime" name="privatelyTotalMaleFullTime"  [(ngModel)]="privatelyTotalMaleFullTime" readonly placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalFemaleFullTime" [value]="privatelyTotalFemaleFullTime" name="privatelyTotalFemaleFullTime"  [(ngModel)]="privatelyTotalFemaleFullTime" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalMalePartTime" [value]="privatelyTotalMalePartTime" name="privatelyTotalMalePartTime"  [(ngModel)]="privatelyTotalMalePartTime" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalFemalePartTime" [value]="privatelyTotalFemalePartTime" name="privatelyTotalFemalePartTime"  [(ngModel)]="privatelyTotalFemalePartTime" placeholder="" autocomplete="off"></td>
+                            <td><input class="form-control"type="number" noScroll formControlName="stateTotal" [value]="stateTotal" name="stateTotal"  [(ngModel)]="stateTotal" placeholder="" autocomplete="off"></td>
+
+                        </tr>
+                        
+
+
+                    </tbody>
+                </table>
+                <div>
+                    <button mat-button  (click)="closeDialog()" >Cancel</button>
+                    <button class="btn btn-success" (click)="statePaidSubmit()" >Save & Continue</button>
+                </div>
+
+
+
+            </form>
+
+
+        </div>
+        
+    </div>
+</div>
+
+<div *ngIf="sectorTypeId === 2">
+
+    <h2 class="title-log" style="text-align: center;text-align: center;">Personnel Information </h2>
+    <div class="title-log" >
+      <p style="text-align: center;text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+      <ol>
+          <li>Kindly input the total number of male and female staff members across all employment categories and ranks at the school.</li>
+          <li>Please note that Public school staff categories comprise of both State-Paid and Privately Paid (SGB-Appointed) staff members.</li>
+          <li>All Independent school appointments comprise of Privately Paid staff members only.</li>
+          <li>Staff members by gender that are employed on both a part-time and full-time basis need to also be counted.</li>
+          <li>Staff members that are acting in a higher post must be accounted for in their appointed positions and NOT in their acting positions.</li>
+          <li>The Educator, Administrative and Support staff categories cannot contain nil (0) values</li>
+          <li>Please ensure that you address all staff categories. Kindly use the scroll bar below the “Save and Continue” button to view all categories across the page or use the Zoom function on your browser to see the full table.</li>
+      </ol>
+        
+         
+      
+  </div>
+
+  <div class="mat-dialog-content">
+ 
+    <div class="container">
+        <form [formGroup]="personnelForm">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th rowspan="3" style="width:170.45pt; text-align: center;">STAFF</th>
+                        <th colspan="4" style="width:165.45pt;text-align: center;">Privately Employed / Governing Body Paid</th>
+                        
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="width:81.7pt;text-align: center;">Full-time</th>
+                        <th colspan="2" style="width:81.75pt;text-align: center;">Part-time</th>
+                       
+                    </tr>
+                    <tr>
+                        <th style="width: 120px; text-align: center;">Male</th>
+                        <th style="width: 120px; text-align: center;">Female</th>
+                        <th style="width:120px; text-align: center;">Male</th>
+                        <th style="width: 120px;text-align: center;">Female</th>
+                        <th style="width:120px;text-align: center;">Total</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows under State Paid section -->
+                   
+                    <!-- Add more rows under State Paid section and Privately Employed / Governing Body Paid section as needed -->
+                    <tr>
+                        <td>Principal</td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMalePrincipal" placeholder="" autocomplete="off" style="width: 100%"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemalePrincipal" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMalePrincipal" placeholder="" autocomplete="off" style="width: 100%;"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemalePrincipal" placeholder="" autocomplete="off"></td>
+                       
+                        <td><input class="form-control"type="number" noScroll formControlName="principalTotal" [value]="principalTotal" name="principalTotal"  [(ngModel)]="principalTotal" placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Deputy Principal</td>
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleDeputyPrincipal" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="deputyPrincipalTotal" [value]="deputyPrincipalTotal" name="deputyPrincipalTotal"  [(ngModel)]="deputyPrincipalTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    <!-- Add more rows as needed -->
+                    <tr>
+                        <td>Head of Department</td>
+                        <!-- Columns for Head of Department -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleHeadOfDepartment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="headOfDepartmentTotal" [value]="headOfDepartmentTotal" name="headOfDepartmentTotal"  [(ngModel)]="headOfDepartmentTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Educators</td>
+                        <!-- Columns for Educators -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="educatorsTotal" [value]="educatorsTotal" name="educatorsTotal"  [(ngModel)]="educatorsTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Professional non-teaching staff</td>
+                        <!-- Columns for Professional non-teaching staff -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleProfessionalNonTeachingStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="professionalNonTeachingStaffTotal" [value]="professionalNonTeachingStaffTotal" name="professionalNonTeachingStaffTotal"  [(ngModel)]="professionalNonTeachingStaffTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Administrative staff</td>
+                        <!-- Columns for Administrative staff -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleAdministrativeStaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="administrativeStaffTotal" [value]="administrativeStaffTotal" name="administrativeStaffTotal"  [(ngModel)]="administrativeStaffTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Support staff</td>
+                        <!-- Columns for Support staff -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleSupportstaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleSupportstaff" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="supportstaffTotal" [value]="supportstaffTotal" name="supportstaffTotal"  [(ngModel)]="supportstaffTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Early Childhood Development (ECD) Practitioners</td>
+                        <!-- Columns for ECD Practitioners -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleEarlyChildhoodDevelopment" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="earlyChildhoodDevelopmentTotal" [value]="earlyChildhoodDevelopmentTotal" name="earlyChildhoodDevelopmentTotal"  [(ngModel)]="earlyChildhoodDevelopmentTotal" readonly placeholder="" autocomplete="off"></td>
+                        
+
+                    </tr>
+                    <tr>
+                        <td>Special Class Educators</td>
+                        <!-- Columns for Special Class Educators -->
+                        <!-- Columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeMaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidFullTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeMaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="governingBodyPaidPartTimeFemaleSpecialClassEducators" placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="specialClassEducatorsTotal" [value]="specialClassEducatorsTotal" name="specialClassEducatorsTotal"  [(ngModel)]="specialClassEducatorsTotal" readonly placeholder="" autocomplete="off"></td>
+
+                    </tr>
+                    
+                    <tr style="border: 2px solid black;">
+                        <td><strong>Total</strong></td>
+                        <!-- Columns for Total counts -->
+                        <!-- Empty columns for Privately Employed / Governing Body Paid section -->
+                        <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalMaleFullTime" [value]="privatelyTotalMaleFullTime" name="privatelyTotalMaleFullTime"  [(ngModel)]="privatelyTotalMaleFullTime" readonly placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalFemaleFullTime" [value]="privatelyTotalFemaleFullTime" name="privatelyTotalFemaleFullTime"  [(ngModel)]="privatelyTotalFemaleFullTime" readonly placeholder="" autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalMalePartTime" [value]="privatelyTotalMalePartTime" name="privatelyTotalMalePartTime"  [(ngModel)]="privatelyTotalMalePartTime" placeholder="" readonly autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="privatelyTotalFemalePartTime" [value]="privatelyTotalFemalePartTime" name="privatelyTotalFemalePartTime"  [(ngModel)]="privatelyTotalFemalePartTime" placeholder="" readonly autocomplete="off"></td>
+                        <td><input class="form-control"type="number" noScroll formControlName="grandTotal" [value]="grandTotal" name="grandTotal"  [(ngModel)]="grandTotal" placeholder="" readonly autocomplete="off"></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+            <div>
+                <button mat-button  (click)="closeDialog()" >Cancel</button>
+                <button class="btn btn-success" (click)="onSubmit()" >Save & Continue</button>
+            </div>
+
+
+        </form>
+
+
+
+    
+        
+    </div>
+  </div>

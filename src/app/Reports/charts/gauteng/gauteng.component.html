@@ -1,0 +1,75 @@
+
+<div class="container">
+  
+
+  <mat-card>
+    <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Gauteng Districts Charts
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="row">
+    <div *ngFor="let districtID of districtID" class="col-lg-3">
+      <canvas [id]="'bar-chart-' + districtID"></canvas>
+    </div>
+  </div>
+  </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+  <br>
+  <mat-card>
+  <mat-accordion>
+  
+  <mat-expansion-panel (opened)="panelOpenState = false"
+                   (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+    Gauteng East District Report
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+  <app-gauteng-east></app-gauteng-east>
+  
+  </div>
+  </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+  <br>
+  <mat-card>
+  <mat-accordion>
+  
+  <mat-expansion-panel (opened)="panelOpenState = false"
+                   (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+    Gauteng North District Report
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+  <app-gauteng-north></app-gauteng-north>
+  </div>
+  </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+
+  <br>
+  <mat-card>
+  <mat-accordion>
+  
+  <mat-expansion-panel (opened)="panelOpenState = false"
+                   (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+    Gauteng West District Report
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+  <app-gauteng-west></app-gauteng-west>
+  </div>
+  </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+  </div>

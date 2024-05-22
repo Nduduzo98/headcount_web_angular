@@ -1,0 +1,108 @@
+<div class="container">
+    <mat-card>
+      <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = false"
+                       (closed)="panelOpenState = true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Johannesburg Districts Charts
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+      <div *ngFor="let districtID of districtID" class="col-lg-3">
+        <canvas [id]="'bar-chart-' + districtID"></canvas>
+      </div>
+    </div>
+    </mat-expansion-panel>
+</mat-accordion>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-accordion>
+    
+<mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Johannesburg Central District Report
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+    <app-central></app-central>
+    
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+  <mat-card>
+    <mat-accordion>
+    
+<mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Johannesburg East District Report
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+  <app-east-jhb></app-east-jhb>
+    
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+  <mat-card>
+    <mat-accordion>
+    
+<mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Johannesburg North District Report
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+    <app-north-jhb></app-north-jhb>
+    
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+  <mat-card>
+    <mat-accordion>
+    
+<mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Johannesburg South District Report
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+    <app-south-jhb></app-south-jhb>
+    
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+  <mat-card>
+    <mat-accordion>
+<mat-expansion-panel (opened)="panelOpenState = false"
+                     (closed)="panelOpenState = true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Johannesburg West District Report
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+   <app-west-jhb></app-west-jhb>
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+</div>
+

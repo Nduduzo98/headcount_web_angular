@@ -1,0 +1,49 @@
+.title-log{
+    background-color: #ad9961;
+    color: #fff;
+  }
+  h1{
+    text-align: center;
+  }
+  .card{
+    width: 100%;
+  }
+  ol li{
+    font-size: 12px;
+  }
+
+  p{
+    color: #004b98;
+  }
+  .button{
+    background-color: #004b98;
+    color: #fff;
+  }
+  mat-icon{
+    color: #004b98; 
+  }
+  mat-icon:hover{
+    color: #980000;
+      }
+  .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Adjust z-index as needed */
+        backdrop-filter: blur(5px); /* Apply a blur effect to the overlay */
+}
+
+mat-form-field{
+  width: 50%;
+}
+mat-label{
+  font-size: 15px;
+}
+
+

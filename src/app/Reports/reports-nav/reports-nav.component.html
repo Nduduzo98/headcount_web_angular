@@ -1,0 +1,82 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar><p style="color: #fff;">Headcount Survey</p></mat-toolbar>
+    <mat-nav-list *ngIf="isGdeOfficial()">
+      <a mat-list-item (click)="showAllDistricts()">All Districts</a>
+      <a mat-list-item (click)="showJoburg()">Johannesburg</a>
+      <a mat-list-item (click)="showEkurhuleni()">Ekurhuleni</a>
+      <a mat-list-item (click)="showGauteng()">Gauteng</a>
+      <a mat-list-item (click)="showSedibeng()">Sedibeng</a>
+      <a mat-list-item (click)="showTshwane()">Tshwane</a>
+      <a mat-list-item (click)="logout()" *ngIf="isHandset$ | async">Sign Out</a>
+
+    </mat-nav-list>
+
+    <mat-nav-list *ngIf="isDistrictOfficial()">
+      <a mat-list-item (click)="showAllDistrictOfficial()">Chart</a>
+      <a mat-list-item (click)="showCompleted()">Submitted Report</a>
+      <a mat-list-item (click)="showInProgress()">Not Completed Report</a>
+      <a mat-list-item (click)="showNotStarted()">Not Submitted Report</a>
+      <a mat-list-item (click)="logout()" *ngIf="isHandset$ | async">Sign Out</a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="Secondary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><img class="logo"src="assets/images/gdelogo1.png" alt=""></span>
+      
+      <a mat-button  *ngIf="!(isHandset$ | async)">{{profile.givenName}} &nbsp; {{profile.surname}} </a>
+      <a mat-button (click)="signOut()" *ngIf="!(isHandset$ | async)">Sign Out</a>
+
+    </mat-toolbar>
+    <div class="container">
+      <br>
+      <div *ngIf="isGdeOfficial()">
+        <app-all-districts *ngIf="allDistrict"></app-all-districts>
+        <app-johannesburg *ngIf="joburg"></app-johannesburg>
+        <app-ekurhuleni *ngIf="ekurhuleni"></app-ekurhuleni>
+        <app-gauteng *ngIf="gauteng"></app-gauteng>
+        <app-sedibeng *ngIf="sedibeng"></app-sedibeng>
+        <app-tshwane *ngIf="tshwane"></app-tshwane>
+      </div>
+      
+
+      <div *ngIf="isDistrictOfficial()">
+        <app-district-official *ngIf="allDistrictOfficial"></app-district-official>
+
+        <app-completed *ngIf="completedTable"></app-completed>
+        <app-in-progress *ngIf="inProgressTable"></app-in-progress>
+        <app-not-started *ngIf="notStartedTable"></app-not-started>
+      </div>
+    </div>
+    <br>
+    <footer id="footer">
+
+    
+      <div class="container d-md-flex py-4">
+    
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>EMIS SNAP SURVEY 2023</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="http://scholartransport.gauteng.gov.za/">Department of Education</a>
+          </div>
+        </div>
+       
+      </div>
+    </footer><!-- End Footer -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,186 @@
+
+<div (contextmenu)="preventContextMenu($event)">
+
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a class="logo"><img class="logo"src="assets/images/gdelogo1.png" alt=""></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " (click)="scrollToSection('hero')" style="cursor: pointer;">Home</a></li>
+          <li><a class="nav-link scrollto" style="cursor: pointer;" (click)="scrollToSection('contact')">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"  (click)="toggleMobileNav($event)"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="zoom-out" data-aos-delay="100">
+      <div class="row ">
+        <div class="col-xl-9 col-lg-12 ">
+          <h1>
+            {{currentYear}} Annual 10th Day Snap Survey</h1>
+         
+        </div>
+      </div>
+      <div class="text-center">
+        <a mat-button class="btn-get-started scrollto" (click)="openDialog()">Start Survey</a>
+      </div>
+
+     </div>
+
+  </section>
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>EMIS SNAP SURVEY {{currentYear}}</h2>
+        <p>All schools are required to complete the annual snap survey to assist the Gauteng Department of Education in determining the size and the shape of the schooling sector in the province. </p>
+      </div>
+      
+      <div class="row content">
+        <div class="col-lg-12 card">
+        
+            <div class="text-center">
+                <h2>
+                    Purpose of the survey
+                  </h2>
+            </div>
+          <ul>
+            <li><i class="ri-check-double-line"></i> The purpose of the online snap survey is to rapidly collect data on the provincial education system. This information is intended for, but not limited to, supporting education planning, the provision of resources, monitoring and evaluation, reporting and supporting GDE decision-making processes.</li>
+            <li><i class="ri-check-double-line"></i> The survey is targeted for completion by ALL schools on 30<sup>th</sup> January {{currentYear}}.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+<!-- ======= instructions Section ======= -->
+<section id="instructions" class="instructions">
+  <div class="container" data-aos="zoom-in">
+    <div class="row content">
+        <div class="col-lg-12 ">
+        
+            <div class="text-center">
+                <h3>Instructions to the Principal</h3>
+            </div>
+         
+            <ul>
+                <li><i class="ri-check-double-line"></i>Kindly note that the survey <strong>MUST</strong> be completed online.</li>
+                <li><i class="ri-check-double-line"></i>A hard copy of the survey instrument was attached to GDE Circular 6 of 2023 (dated 22 November 2023).</li>
+                <li><i class="ri-check-double-line"></i>The sample survey form was shared in advance to make you aware of the scope of the survey, allow you to engage relevant staff and collate all required information in preparation for completing the survey online.</li>
+                <li><i class="ri-check-double-line"></i>No emailed copies of the survey instrument annexed to Circular 6 of 2023 will be accepted.</li>
+                <li><i class="ri-check-double-line"></i>Kindly provide complete and accurate information as this may influence resourcing and related management decisions associated with the school.</li>
+                <li><i class="ri-check-double-line"></i><strong><span style="color:black;">Survey completion steps:</span></strong> 
+                  <ol style="list-style-type: lower-roman;">
+                    <li><span style="color:black;">Complete the survey by inputting ALL required information as requested;</span></li>
+                    <li><span style="color:black;">After completing the online survey, please click the <strong>download pdf</strong> button;</span></li>
+                    <li><span style="color:black;"><strong>Print</strong> the summary report (pdf survey) and <strong>confirm the accuracy</strong> of the information captured in the summary report;</span></li>
+                    <li><span style="color:black;">If any errors are identified in the summary report, kindly click the <strong>edit</strong> button (look for pencil icon) alongside the relevant section to correct such errors;</span></li>
+                    <li><span style="color:black;">Once you are satisfied that all errors in the draft summary report have been corrected, kindly click the <strong>Submit Survey</strong> button;</span></li>
+                    <li><span style="color:black;"><strong>Download</strong> the final copy of the school’s Snap Survey summary report;</span></li>
+                    <li><span style="color:black;"><strong>Sign and stamp</strong> the final hard copy; and&nbsp;</span></li>
+                    <li><strong><span style="color:black;">File</span></strong><span style="color:black;">&nbsp;the signed and stamped 2024 Annual 10th Day Snap Survey Summary Report in the school's  <strong>EMIS file</strong>.</span></li>
+                </ol>
+                
+                
+                </li>
+          
+                <li><i class="ri-check-double-line"></i>Kindly avail the final signed and stamped report to any GDE official on request.</li>
+
+
+              </ul>
+        </div>
+      </div>
+
+  </div>
+</section>
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2><span>Contact Us</span></h2>
+  
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-6">
+        <div class="info-box mb-4">
+          <i class="bx bx-map"></i>
+          <h3>Our Address</h3>
+          <p>17 Simmonds Street, Marshall Town, Johannesburg, 2107</p>
+        </div>
+      
+    </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="info-box  mb-4">
+
+          <h3>1. Director: Education Planning and Information</h3>
+          <p>Ebrahim Farista:</p>
+          <i class="bx bx-phone-call"></i><p >0824506212</p>
+          <i class="bx bx-envelope"></i><p>ebrahim.farista@gauteng.gov.za</p>
+         
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="info-box  mb-4">
+          <h3>2. Chief Education Specialist: EMIS</h3>
+          <p>Zoleka Khumalo:</p>
+          <i class="bx bx-phone-call"></i><p>0635007869</p>
+          <i class="bx bx-envelope"></i><p>Zoleka.khumalo@gauteng.gov.za</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-6">
+    <div class="info-box mb-4">
+     
+      <h3>3. Deputy Chief Education Specialists: EMIS</h3>
+      <p>Brenda Gxekwa (Districts: JN, JS & SW)</p> <p>brenda.gxekwa@gauteng.gov.za</p><p>064 738 0647 </p> <br>
+
+      <p>Lavina Naidoo (Districts: GN, JC, SE & TN)</p> <p> lavina.naidoo@gauteng.gov.za</p> <p>064 738 1077 </p><br>
+      <p>Valentine Mokale (Districts: ES, JW & TW)</p> <p>valentine.mokale@gauteng.gov.za</p> <p>064 738 0185 </p><br>
+      <p>Ndifelani Seaba (Districts: EN, GE & GW)</p> <p>ndifelani.seaba@gauteng.gov.za</p> <p>011 355 0021 </p><br>
+      <p>Tebe Sehurutshe (Districts: JE & TS)</p> <p>tebe.sehurutshe@gauteng.gov.za</p> <p>064 737 9354 </p>
+    </div>
+
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="col-lg-12 ">
+        <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.6686393201344!2d28.037598315030273!3d-26.207455383436415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ea25783840f%3A0x18aaa51232c13039!2sGauteng+Department+of+Education!5e0!3m2!1sen!2sza!4v1518419763949" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+      </div>
+
+     
+
+    </div>
+
+  </div>
+</section>
+
+<footer id="footer">
+
+    
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>EMIS SNAP SURVEY 2024</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://GDEHeadCountWeb.gauteng.gov.za/">Gauteng Department of Education</a>
+        </div>
+      </div>
+     
+    </div>
+  </footer><!-- End Footer -->
+</div>

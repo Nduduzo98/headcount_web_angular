@@ -1,0 +1,51 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <h1 mat-dialog-title class="title-log">OTP VALIDATION</h1>
+
+<div mat-dialog-content class="mat-dialog-content">
+
+    <mat-card class="card">
+        <br>
+
+        <div class="container" *ngIf="showSendOtpForm">
+            <p>Please enter a cellphone number to receive the One-Time Pin (OTP). Kindly make sure that the cellphone is in your possession before entering the number in the space below. An OTP comprising of 6 digits will be returned to the cellphone number you entered. The OTP will only be valid for 5 minutes. Failure to enter the OTP within that time will require you to request it again.</p>
+            <form [formGroup]="SendotpForm">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Your Cell Number</mat-label>
+                    <input matInput placeholder="" type="text" autocomplete="off" formControlName="cellPhone"  required>
+                </mat-form-field>
+    
+            <div mat-dialog-actions class="container">
+                <button (click) = "sendOtp(SendotpForm.value)" mat-raised-button color="primary">Get OTP</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="container" *ngIf="showVerifyForm">
+            <p>Please enter the One-Time-Pin (OTP) sent to {{phoneNumber}} cell number</p>
+            <form [formGroup]="verifyOtpForm">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter OTP</mat-label>
+                    <input matInput placeholder="" type="text" autocomplete="off" formControlName="otp" required>
+                </mat-form-field>
+    
+            <div mat-dialog-actions class="container">
+                <button (click) = "verifyOtp(verifyOtpForm.value)" mat-raised-button color="primary">Validate</button>
+                <button (click) = "resendOtp()" mat-raised-button color="primary">Resend OTP</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="overlay" *ngIf="isSubmitting">
+            <mat-progress-spinner mode="indeterminate" diameter="50" strokeWidth="3" style=" color: #ad9961"></mat-progress-spinner>
+          </div>
+      </mat-card>
+    
+  
+
+</div>

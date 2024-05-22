@@ -1,0 +1,248 @@
+
+<div class="mat-dialog-content">
+    <mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <div class="title-log" style="text-align: center;">
+    <p><strong>INSTRUCTION: </strong></p>
+    <p>Please ensure that the school’s general details are captured correctly.</p>
+    </div>
+    <div mat-dialog-content class="content">
+        <input id="duration" value="2000" type="hidden" min="0" step="100" #duration>
+     
+          <mat-vertical-stepper [linear]="false"  #stepper [animationDuration]="duration.value">
+            <form [formGroup]="editForm">
+    
+            
+            <mat-step>
+                <ng-template matStepLabel>School General Details</ng-template>
+                <br>
+                <div class="row" >
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Emis Number</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="emisNo" autocomplete="off" readonly>
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>District</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="districtName" autocomplete="off" readonly>
+                    </mat-form-field>
+                </div>
+                <div class="row" >
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Institution Name
+                        </mat-label>
+                        <input matInput placeholder="" type="text" formControlName="institutionName" autocomplete="off" readonly>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <select matNativeControl formControlName="title"  required>
+                            <option value="Mr">Mr.</option>
+                            <option value="Mrs">Mrs.</option>     
+                            <option value="Ms">Ms.</option>  
+                            <option value="Dr">Dr.</option>                  
+                            </select>
+                    </mat-form-field>
+                   
+                </div>
+                <div class="row">
+
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Principal Name And Surname </mat-label>
+                        <input matInput placeholder="" type="text" formControlName="principalNameAndSurname" autocomplete="off" required>
+                        <mat-error *ngIf="editForm.get('principalNameAndSurname').hasError('required')">This field is required.</mat-error>
+                        <mat-error *ngIf="editForm.get('principalNameAndSurname').hasError('pattern')">Principal Name must contain only alphabetic characters.</mat-error>
+                    </mat-form-field>
+
+                  
+                    <mat-form-field   appearance="outline" *ngIf="sectorTypeId == 1" >
+                        <mat-label>Persal Number</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="principalPersal" autocomplete="off" >
+                        <mat-error *ngIf="editForm.get('principalPersal').hasError('pattern')">PersalNumber must contain only Numeric characters.</mat-error>
+                        <mat-error *ngIf="editForm.get('principalPersal').hasError('maxlength')">PersalNumber must contain only 8 numbers</mat-error>
+                        <mat-error *ngIf="editForm.get('principalPersal').hasError('minlength')">PersalNumber must contain only 8 numbers</mat-error>
+    
+                    </mat-form-field>
+                </div>
+    
+                <div class="row" >
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Principal Cell Number</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="principalCellPhone" autocomplete="off" >
+                        <mat-error *ngIf="editForm.get('principalCellPhone').hasError('required')">This field is required.</mat-error>
+                        <mat-error *ngIf="editForm.get('principalCellPhone').hasError('pattern')">Principal Cell Number must contain only Numeric characters.</mat-error>
+                        <mat-error *ngIf="editForm.get('principalCellPhone').hasError('maxlength')">Principal Cell Number must contain only 10 numbers</mat-error>
+                        <mat-error *ngIf="editForm.get('principalCellPhone').hasError('minlength')">Principal Cell Number must contain only 10 numbers</mat-error>
+    
+                    </mat-form-field>
+    
+                    <mat-form-field   appearance="outline">
+                        <mat-label>Secondary Cell Number (Optional)</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="alternativeCellNo" autocomplete="off">
+                        <mat-error *ngIf="editForm.get('alternativeCellNo').hasError('pattern')">Secondary Cell Number must contain only Numeric characters.</mat-error>
+                        <mat-error *ngIf="editForm.get('alternativeCellNo').hasError('maxlength')">Secondary Cell Number must contain only 10 numbers</mat-error>
+                        <mat-error *ngIf="editForm.get('alternativeCellNo').hasError('minlength')">Secondary Cell Number must contain only 10 numbers</mat-error>
+    
+    
+                    </mat-form-field>
+                </div>
+    
+
+            <div class="row" >
+                <mat-form-field   appearance="outline">
+                    <mat-label>School Telephone Number</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="schoolTelephone" autocomplete="off" >
+                    <mat-error *ngIf="editForm.get('schoolTelephone').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="editForm.get('schoolTelephone').hasError('pattern')">School Telephone Number must contain only Numeric characters.</mat-error>
+                    <mat-error *ngIf="editForm.get('schoolTelephone').hasError('maxlength')">School Telephone Number must contain only 10 numbers</mat-error>
+                    <mat-error *ngIf="editForm.get('schoolTelephone').hasError('minlength')">School Telephone Number must contain only 10 numbers</mat-error>
+
+                </mat-form-field>
+                
+            <mat-form-field appearance="outline">
+                <mat-label>Using ID Number or Passport</mat-label>
+                <select matNativeControl formControlName="usingIDAndPassport" [(ngModel)]="idOrPass" name="idOrPass">
+                    <option value="1">ID</option>
+                    <option value="2">Passport</option>                   
+                    </select>
+            </mat-form-field>
+            </div>
+            <div class="row" >
+                <mat-form-field appearance="outline" *ngIf="idOrPass=='1'" >
+                    <mat-label>ID Number</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="principalIDNo" autocomplete="off">
+                    <mat-error *ngIf="editForm.get('principalIDNo').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="editForm.get('principalIDNo').hasError('pattern')">ID Number must contain only numeric characters.</mat-error>
+                    <mat-error *ngIf="editForm.get('principalIDNo').hasError('maxlength')">ID Number must contain only 13 numbers</mat-error>
+                    <mat-error *ngIf="editForm.get('principalIDNo').hasError('minlength')">ID Number must contain only 13 numbers</mat-error>
+                </mat-form-field>
+                <mat-form-field   appearance="outline"*ngIf="idOrPass=='2'">
+                    <mat-label>Passport </mat-label>
+                    <input matInput placeholder="" type="text" formControlName="passportID" autocomplete="off">
+                    <mat-error *ngIf="editForm.get('passportID').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="editForm.get('passportID').hasError('pattern')">Passport must contain only numeric characters.</mat-error>
+                    <mat-error *ngIf="editForm.get('passportID').hasError('maxlength')">Passport Number must contain only 9 numbers</mat-error>
+                    <mat-error *ngIf="editForm.get('passportID').hasError('minlength')">Passport Number must contain only 9 numbers</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Electronic School Administration System(s) Being Used</mat-label>
+                    <select matNativeControl formControlName="systemBeingUsed" [(ngModel)]="sasamsOther" name="sasamsOther">
+                        <option value="1">SASAMS Only</option>
+                        <option value="2">SASAMS and Other Systems </option>  
+                        <option value="3">Other Systems Only</option>                  
+                        </select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" *ngIf="sasamsOther=='2'">
+                        <mat-label>Electronic School Administration System(s) Being Used</mat-label>
+                        <select matNativeControl formControlName="schoolAdminManagementSystemID" >
+                                          <option *ngFor ="let system of systems" [value]="system.id">{{system.systemName}}</option>       
+                            </select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" *ngIf="sasamsOther=='3'">
+                            <mat-label>Other Electronic School Administration System</mat-label>
+                            <input matInput placeholder="Please Specify" type="text" formControlName="otherSchoolAdminSystem" autocomplete="off">
+                        </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Principal Email Address (Optional)</mat-label>
+                    <input matInput placeholder=" " type="text" formControlName="officialPrincipalEmail" autocomplete="off">
+                    <mat-error *ngIf="editForm.get('officialPrincipalEmail').hasError('email')">Invalid email format.</mat-error>
+
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>School Official Email Address</mat-label>
+                    <input matInput placeholder=" " type="text" formControlName="schoolEmailAddress" autocomplete="off">
+                    <mat-error *ngIf="editForm.get('schoolEmailAddress').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="editForm.get('schoolEmailAddress').hasError('email')">Invalid email format.</mat-error>
+
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>School Secondary Email Address</mat-label>
+                    <input matInput placeholder=" " type="text" formControlName="schoolAlternativeEmailAddress" autocomplete="off" >
+                    <mat-error *ngIf="editForm.get('schoolAlternativeEmailAddress').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="editForm.get('schoolAlternativeEmailAddress').hasError('email')">Invalid email format.</mat-error>
+                   
+                </mat-form-field>
+                <span style="color: red;" *ngIf="editForm.errors?.['emailMatchError']">Cannot Have the same email has above</span>
+                
+                <!-- <mat-label>Are you a School of Specialisation</mat-label>
+                <mat-checkbox formControlName="specialisationSchool"></mat-checkbox> -->
+            </div>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Select Grades applicable to school</ng-template>
+                <br>
+             
+                <div  style="color: red;" *ngIf="editForm.hasError('atLeastOneCheckboxChecked')">
+                    Please select at least one checkbox.
+                  </div>
+                  <div style="float: left; width: 50%;">
+                    
+                    <mat-checkbox formControlName="preGradeR"> Pre-Grade R</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="gradeR">Grade R</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade1">Grade 1</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade2">Grade 2</mat-checkbox>
+                    <br>
+
+    
+                    <mat-checkbox formControlName="grade3">Grade 3</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade4">Grade 4</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade5">Grade 5</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade6">Grade 6</mat-checkbox>
+                    <br>
+
+                    <mat-checkbox formControlName="grade7">Grade 7</mat-checkbox>
+                    <br>
+                </div>
+                <div style="float: left; width: 50%;">
+                
+                    <mat-checkbox formControlName="grade8">Grade 8</mat-checkbox>
+    <br>
+                    <mat-checkbox formControlName="grade9">Grade 9</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="grade10">Grade 10</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="grade11">Grade 11</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="grade12">Grade 12</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="gradeSpecial">Grade Special</mat-checkbox>
+                    <br>
+                    <mat-checkbox formControlName="gradeOther">Grade Other</mat-checkbox>
+                </div>
+                <br>
+                <br>
+                <br>
+    
+
+
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="onSubmit(this.editForm.value)">Save & Continue</button>
+                  </div>
+            </mat-step>
+        </form>
+          </mat-vertical-stepper>
+    </div>
+
+
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+  
+
+<mat-card>
+  <mat-accordion>
+<mat-expansion-panel (opened)="panelOpenState = false"
+                   (closed)="panelOpenState = true">
+<mat-expansion-panel-header>
+  <mat-panel-title>
+    Ekurhuleni Districts Charts
+  </mat-panel-title>
+</mat-expansion-panel-header>
+<div class="row">
+  <div *ngFor="let districtID of districtID" class="col-lg-3">
+    <canvas [id]="'bar-chart-' + districtID"></canvas>
+  </div>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+<mat-card>
+<mat-accordion>
+
+<mat-expansion-panel (opened)="panelOpenState = false"
+                 (closed)="panelOpenState = true">
+<mat-expansion-panel-header>
+<mat-panel-title>
+  Ekurhuleni North District Report
+</mat-panel-title>
+</mat-expansion-panel-header>
+<div class="container">
+<app-ekurhuleni-north></app-ekurhuleni-north>
+
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+<br>
+<mat-card>
+<mat-accordion>
+
+<mat-expansion-panel (opened)="panelOpenState = false"
+                 (closed)="panelOpenState = true">
+<mat-expansion-panel-header>
+<mat-panel-title>
+  Ekurhuleni South District Report
+</mat-panel-title>
+</mat-expansion-panel-header>
+<div class="container">
+<app-ekurhuleni-south></app-ekurhuleni-south>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+</div>

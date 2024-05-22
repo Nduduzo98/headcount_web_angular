@@ -1,0 +1,39 @@
+
+
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <button mat-button class="add" (click)="closeDialog()" > <mat-icon>close</mat-icon></button>
+    </div>
+  </mat-card-actions>
+  <h1 mat-dialog-title class="title-log">POPIA Disclaimer</h1>
+  <h2 style="text-align: center;">Terms and Conditions</h2>
+<div mat-dialog-content class="mat-dialog-content">
+
+    <mat-card class="card">
+        <ol>
+            <li>The GDE is a responsible entity mandated with the processing of personal information such as the names, surnames, ID numbers and the location of specified data subjects.</li>
+            <li>This data is requested from data subjects to assist the GDE in discharging its constitutional mandate to provide basic education in the province.</li>
+            <li>The personal information that will be collected will be solely used for the purpose for which it was intended. </li>
+            <li>The Department reaffirms it’s commitment to ALL data subjects that the information will not be shared with any third party without the consent of the data subjects.</li>
+            <li>The personal information submitted by data subjects will be processed lawfully and in a reasonable manner that will not infringe on the privacy of any data subject.</li>
+            <li>The Department may use the personal information of data subjects that is in the Department’s possession at Schools, District Offices, Head Office and the Provincial Data Warehouse. This is to facilitate the delivery of education services and to comply with national reporting requirements.</li>
+            <li>The Department will take reasonably practicable steps to ensure that the personal information of data subjects will be protected. In respect of all schools, and for the current purpose, the Principal’s ID number or Passport number and cell number will be required to complete this mandatory survey.</li>
+            <li>If you agree to the above Terms and Conditions, kindly check the box below and click the “Accept Terms and Conditions” button</li>
+            
+            
+        </ol>
+
+
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [formControl]="checkboxControl"></mat-checkbox>
+          
+            <button mat-button [disabled]="!checkboxControl.value" class="button" (click)="acceptPopia()">Accept Terms and Conditions</button>
+          </section>
+          
+      </mat-card>
+   <div mat-dialog-actions class="container">
+   
+
+   </div>
+
+</div>

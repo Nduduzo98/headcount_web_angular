@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav-content>
+      <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <a class="logo"><img class="logo"src="assets/images/gdelogo1.png" alt=""></a>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a mat-button >{{schoolDetails.institutionName}}</a></li>
+              <li><a mat-button (click)="cancelSurvey()" >Log Out</a></li>
+            </ul>
+            <!-- <i class="bi bi-list mobile-nav-toggle"  (click)="toggleMobileNav($event)"></i> -->
+          </nav><!-- .navbar -->
+  
+        </div>
+      </header>
+      <br>
+      <br>
+  
+      <br>
+      <br>
+      <!-- Add Content Here -->
+     
+    
+  <div class="contaier">
+    <br>
+    <mat-card class="cards">
+
+      <mat-card-content>
+        <p>Thank You for completing the 2024 Snap Survey. Please click the <strong>Download Survey PDF</strong> button below to obtain an electronic copy of the Summary Report. Please file this for future reference</p>
+        
+        <mat-divider></mat-divider>
+      </mat-card-content>
+        <mat-card-actions >
+            <button class="button-18" (click)=" download()">Download Survey PDF <span class="material-icons">file_download</span></button> 
+            
+            </mat-card-actions>
+            <!-- <mat-card-actions>
+                <button class="button-34" (click)="edit()">Edit Survey <span class="material-icons">edit</span></button>
+            </mat-card-actions> -->
+                <br>
+            
+    </mat-card>
+    
+
+    </div>
+  <br>
+  <br>
+  <br>
+
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <footer id="footer">
+  
+      
+    <div class="container d-md-flex py-4">
+  
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>EMIS SNAP SURVEY 2024</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://GDEHeadCountWeb.gauteng.gov.za/">Department of Education</a>
+        </div>
+      </div>
+     
+    </div>
+  </footer>

@@ -1,0 +1,209 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+    </div>
+  </mat-card-actions>
+  <h2 class="title-log"style="text-align: center;">Staff Mortality <strong>(2023)</strong></h2>
+  <div class="title-log" >
+    <p style="text-align: center;"><strong>INSTRUCTIONS: </strong></p>
+    <ol>
+        <li>Kindly input the total number of male and female staff members across all ranks and categories that lost their lives in 2023.</li>
+        <li>The total number of deceased staff will be calculated automatically.</li>
+        <li>Please use the scroll bars to view the full table. You can also use the Zoom function in your browser to achieve the same result.</li>
+    </ol>
+      
+       
+    
+</div>
+<div class="mat-dialog-content">
+    <div class="container">
+        <form [formGroup]="personnelForm">
+            <div class="table-responsive">
+
+                <table class="table table-bordered">
+                    <thead class="custom-thead">
+                        <tr>
+                            <th rowspan="2" style="text-align: center;">Cause of Death</th>
+                            <th colspan="2" style="text-align: center;">Principal</th>
+                            <th colspan="2" style="text-align: center;">Deputy Principal</th>
+                            <th colspan="2" style="text-align: center;">HOD</th>
+                            <th colspan="2" style="text-align: center;">Educators</th>
+                            <th colspan="2" style="text-align: center;">Administration</th>
+                            <th colspan="2" style="text-align: center;">Professional non-teaching staff</th>
+                            <th colspan="2" style="text-align: center;">Support Staff</th>
+                            <th colspan="2" style="text-align: center;">Other</th>
+
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Male</th>
+                            <th style="text-align: center;">Female</th>
+                            <th style="text-align: center;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Accident</td>
+                            
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentPrincipalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentPrincipalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentDeputyMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentDeputyFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentHodMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentHodFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentEducatorsMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentEducatorsFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentAdministratorMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentAdministratorFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentProfessionalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentProfessionalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentSupportStaffMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentSupportStaffFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentOtherMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="accidentOtherFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalAccident" autocomplete="off" [value]="totalAccident" name="totalAccident"  [(ngModel)]="totalAccident"></td>
+
+                            </tr>
+                              
+                        
+                        <tr>
+                            <td>Illness</td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessPrincipalMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessPrincipalFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessDeputyMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessDeputyFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessHodMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessHodFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessEducatorsMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessEducatorsFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessAdministratorMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessAdministratorFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessProfessionalMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessProfessionalFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessSupportStaffMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessSupportStaffFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessOtherMale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="illnessOtherFemale" autocomplete="off"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalillness" autocomplete="off" [value]="totalillness" name="totalillness"  [(ngModel)]="totalillness"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Suicide</td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicidePrincipalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicidePrincipalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideDeputyMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideDeputyFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideHodMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideHodFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideEducatorsMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideEducatorsFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideAdministratorMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideAdministratorFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideProfessionalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideProfessionalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideSupportStaffMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideSupportStaffFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideOtherMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="suicideOtherFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalsuicide" autocomplete="off" [value]="totalsuicide" name="totalsuicide"  [(ngModel)]="totalsuicide"></td>
+
+                            </tr>
+                        <tr>
+                            <td>Violence and homicide</td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicidePrincipalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicidePrincipalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideDeputyMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideDeputyFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideHodMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideHodFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideEducatorsMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideEducatorsFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideAdministratorMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideAdministratorFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideProfessionalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideProfessionalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideSupportStaffMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideSupportStaffFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideOtherMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="violenceAndHomicideOtherFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalviolenceAndHomicide" autocomplete="off" [value]="totalviolenceAndHomicide" name="totalviolenceAndHomicide"  [(ngModel)]="totalviolenceAndHomicide"></td>
+
+                            </tr>
+
+                        <tr>
+                            <td>Other</td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherPrincipalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherPrincipalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherDeputyMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherDeputyFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherHodMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherHodFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherEducatorsMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherEducatorsFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherAdministratorMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherAdministratorFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherProfessionalMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherProfessionalFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherSupportStaffMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherSupportStaffFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherOtherMale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="otherOtherFemale" autocomplete="off"></td>
+                                <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalother" autocomplete="off" [value]="totalother" name="totalother"  [(ngModel)]="totalother"></td>
+
+                            </tr>
+                        <tr style="border: 2px solid black;">
+                            <td>Total</td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalPrincipalMale" autocomplete="off" [value]="totalPrincipalMale" name="totalPrincipalMale"  [(ngModel)]="totalPrincipalMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalPrincipalFemale" autocomplete="off" [value]="totalPrincipalFemale" name="totalPrincipalFemale"  [(ngModel)]="totalPrincipalFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalDeputyMale" autocomplete="off" [value]="totalDeputyMale" name="totalDeputyMale"  [(ngModel)]="totalDeputyMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalDeputyFemale" autocomplete="off" [value]="totalDeputyFemale" name="totalDeputyFemale"  [(ngModel)]="totalDeputyFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalHodMale" autocomplete="off" [value]="totalHodMale" name="totalHodMale"  [(ngModel)]="totalHodMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalHodFemale" autocomplete="off" [value]="totalHodFemale" name="totalHodFemale"  [(ngModel)]="totalHodFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalEducatorsMale" autocomplete="off" [value]="totalEducatorsMale" name="totalEducatorsMale"  [(ngModel)]="totalEducatorsMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalEducatorsFemale" autocomplete="off" [value]="totalEducatorsFemale" name="totalEducatorsFemale"  [(ngModel)]="totalEducatorsFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalAdministratorMale" autocomplete="off" [value]="totalAdministratorMale" name="totalAdministratorMale"  [(ngModel)]="totalAdministratorMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalAdministratorFemale" autocomplete="off" [value]="totalAdministratorFemale" name="totalAdministratorFemale"  [(ngModel)]="totalAdministratorFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalProfessionalMale" autocomplete="off" [value]="totalProfessionalMale" name="totalProfessionalMale"  [(ngModel)]="totalProfessionalMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalProfessionalFemale" autocomplete="off" [value]="totalProfessionalFemale" name="totalProfessionalFemale"  [(ngModel)]="totalProfessionalFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalSupportStaffMale" autocomplete="off" [value]="totalSupportStaffMale" name="totalSupportStaffMale"  [(ngModel)]="totalSupportStaffMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalSupportStaffFemale" autocomplete="off" [value]="totalSupportStaffFemale" name="totalSupportStaffFemale"  [(ngModel)]="totalSupportStaffFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalOtherMale" autocomplete="off" [value]="totalOtherMale" name="totalOtherMale"  [(ngModel)]="totalOtherMale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="totalOtherFemale" autocomplete="off" [value]="totalOtherFemale" name="totalOtherFemale"  [(ngModel)]="totalOtherFemale"></td>
+                            <td><input class="form-control" style="width: 70px;" placeholder=""type="number" noScroll formControlName="grandTotal" autocomplete="off" [value]="grandTotal" name="grandTotal"  [(ngModel)]="grandTotal"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button mat-button  (click)="closeDialog()" >Cancel</button>
+                    <button class="btn btn-success" (click)="PersonnelMortalitySubmit()" >Save & Continue</button>
+                  </div>
+            </div>
+
+
+           
+
+        </form>
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

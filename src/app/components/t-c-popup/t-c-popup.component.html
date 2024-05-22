@@ -1,0 +1,37 @@
+<mat-card-actions align="end">
+    <div class="action-buttons">
+      <button mat-button class="add" (click)="closeDialog()" > <mat-icon>close</mat-icon></button>
+    </div>
+  </mat-card-actions>
+<h1 mat-dialog-title class="title-log">Terms and Conditions</h1>
+
+<strong style="text-align: center;"><p>In order to continue with the survey you are requested to familiarise yourself with the Terms and Conditions set for participation in the Online Survey</p></strong>
+<div mat-dialog-content class="mat-dialog-content">
+
+    <mat-card class="card">
+        <ol>
+            <li>This survey is to be completed by <strong>ALL</strong> Public and Independent school principals.</li>
+            <li>This survey is for <strong>ALL</strong> Ordinary and Special schools.</li>
+            <li>All relevant sections must be completed in <strong>FULL.</strong></li>
+            <li>The credentials of each principal are essential. This will involve the provision of an ID or Passport number and the Principal's mobile number.</li>
+            <li>Access to the survey will be through a One Time Pin (OTP). The OTP will be sent to the cell number that the school will provide when requested. The survey will be activated once the OTP is accurately inputted.</li>
+            <li>If you agree with the above Terms and Conditions (T&Cs), kindly <strong>check</strong> the box to confirm your acceptance of the T&Cs and <strong>click</strong> on the “Accept Terms and Conditions” button to start the 2024 Annual 10th Day Snap Survey.</li>
+            
+        </ol>
+
+
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [formControl]="checkboxControl"></mat-checkbox>
+          
+            <button mat-button [disabled]="!checkboxControl.value" class="button" (click)=" openDialog()">Accept Terms and Conditions</button>
+          </section>
+          
+      </mat-card>
+   <div mat-dialog-actions class="container">
+   
+
+   </div>
+
+</div>
+
+

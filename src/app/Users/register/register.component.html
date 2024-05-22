@@ -1,0 +1,75 @@
+
+<div class="mat-dialog-content">
+    <mat-card-actions align="end">
+        <div class="action-buttons">
+          <mat-icon (click)="closeDialog()" style="cursor: pointer;">close</mat-icon>
+        </div>
+      </mat-card-actions>
+      <div class="title-log">
+        <h1>Create An Account</h1>
+        
+        </div>
+    <div mat-dialog-content class="content">
+        <form [formGroup]="registrationForm">
+            <div class="row" >
+                <mat-form-field   appearance="outline">
+                    <mat-label>First Name/s</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="fullName" autocomplete="off" >
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="lastName" autocomplete="off" >
+                </mat-form-field>
+            </div>
+            <div class="row" >
+                <mat-form-field   appearance="outline">
+                    <mat-label>Persal Number</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="persalNo"  autocomplete="off" >
+                    <mat-error *ngIf="registrationForm.get('persalNo').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="registrationForm.get('persalNo').hasError('pattern')">Persal Number must contain only Numeric characters.</mat-error>
+               
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>District</mat-label>
+                    <select matNativeControl formControlName="districtID">
+                        <option *ngFor ="let district of districts" [value]="district.id">{{district.districtName}}</option>       
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="row" >
+                <mat-form-field   appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="email" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Cell Number</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="cellPhone" autocomplete="off">
+                    <mat-error *ngIf="registrationForm.get('cellPhone').hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="registrationForm.get('cellPhone').hasError('pattern')"> Cell Number must contain only Numeric characters.</mat-error>
+               
+                </mat-form-field>
+            </div>
+            <div class="row" >
+                <mat-form-field   appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="userName"  [value]="persal" [(ngModel)]="persal" name="persal" autocomplete="off" readonly>
+                </mat-form-field>
+
+                <mat-form-field   appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="" type="password" formControlName="password" autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button  (click)=" onSubmit(this.registrationForm.value)" color="primary">Register</button>
+              </div>
+        </form>
+         
+    
+    </div>
+
+
+</div>

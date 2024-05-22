@@ -1,0 +1,77 @@
+<div class="container">
+  <p>District Name:<strong>{{districtName}}</strong></p>
+  <mat-card>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = false"
+                         (closed)="panelOpenState = true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>Chart For {{districtName}}</p>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+     
+        
+      <div class="row">
+        <div  class="col-lg-4">
+          <canvas id="bar-chart"></canvas>
+        </div>
+      </div>
+              </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+  <br>
+  <mat-card>
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = false"
+                         (closed)="panelOpenState = true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Submission Statistics For {{districtName}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="container">
+        <br>
+        <mat-card>
+            <mat-card-actions align="end">
+              <button mat-button class="add" (click)="downloadSubmissionStatsByDistrict()"> <mat-icon>download</mat-icon>Download Submission Statistics</button>
+            </mat-card-actions>
+            
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+            </mat-form-field>
+    
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="districtName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>District</th>
+                  <td mat-cell *matCellDef="let row">{{row.districtName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="totalSchools">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Number of schools</th>
+                  <td mat-cell *matCellDef="let row"> {{row.totalSchools}} </td>
+                </ng-container>
+                <ng-container matColumnDef="completed">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Number of schools that submitted</th>
+                  <td mat-cell *matCellDef="let row" style="background-color: #6be585;color: #fff;"> {{row.completed}} </td>
+                </ng-container>
+                <ng-container matColumnDef="notStarted">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Number of schools that didn’t submit</th>
+                  <td mat-cell *matCellDef="let row"  style="background-color: #dd3e54; color: #fff;"> {{row.notStarted}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+        </mat-card>
+      </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+  </mat-card>
+</div>
